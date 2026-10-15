@@ -17,7 +17,7 @@ const headerNav = [
     path: `/${Config.HOME_PAGE}/movie`,
   },
   {
-    display: "TV Series",
+    display: "Genre",
     path: `/${Config.HOME_PAGE}/tv`,
   },
 ];
@@ -52,7 +52,7 @@ const Header = () => {
       <div className="header__wrap container">
         <div className="logo">
           <img src={logo} alt="logo" />
-          <Link to={`/${Config.HOME_PAGE}`}>hMovies</Link>
+          <Link to={`/${Config.HOME_PAGE}`}>MovieLens</Link>
         </div>
 
         <ul className="header__nav">

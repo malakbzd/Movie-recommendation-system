@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="footer__content__logo">
           <div className="logo">
             <img src={logo} alt="logo" />
-            <Link to={`/${Config.HOME_PAGE}`}>hMovies</Link>
+            <Link to={`/${Config.HOME_PAGE}`}>MovieLens</Link>
           </div>
         </div>
 
