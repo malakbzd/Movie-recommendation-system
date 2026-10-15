@@ -90,4 +90,40 @@
       }
     }
   }
+
+  /* --- NEW AUTH STYLES ADDED HERE --- */
+  &__auth {
+    @include flex(center, unset);
+    gap: 1.5rem;
+
+    &-btn {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: inherit;
+      text-decoration: none;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: $main-color;
+      }
+
+      &.primary {
+        background-color: $main-color;
+        color: #fff;
+        padding: 0.6rem 1.5rem;
+        border-radius: 4px;
+
+        &:hover {
+          opacity: 0.8;
+          color: #fff;
+        }
+      }
+    }
+
+    @include mobile {
+      /* Hides the buttons on mobile so they don't clash with your bottom nav bar */
+      display: none; 
+    }
+  }
+  /* ---------------------------------- */
 }
