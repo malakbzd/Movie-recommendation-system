@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+// src/pages/detail/Detail.jsx
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router";
+import { AuthContext } from "../../context/AuthContext"; // Import AuthContext
 
 import tmdbApi from "./../../api/tmdbApi";
 import apiConfig from "../../api/apiConfig";
@@ -11,8 +13,10 @@ import MovieList from "./../../components/movie-list/MovieList";
 
 const Detail = () => {
   const { category, id } = useParams();
-
   const [item, setItem] = useState(null);
+  
+  // Get user data and toggle function
+  const { currentUser, toggleFavorite } = useContext(AuthContext);
 
   useEffect(() => {
     const getDetail = async () => {
@@ -22,6 +26,9 @@ const Detail = () => {
     };
     getDetail();
   }, [category, id]);
+
+  // Check if this specific movie is already in the user's favorites
+  const isFavorited = currentUser?.favorites?.some((fav) => fav.id === item?.id);
 
   return (
     <>
@@ -49,7 +56,17 @@ const Detail = () => {
             </div>
 
             <div className="movie-content__info">
-              <h1 className="title">{item.title || item.name}</h1>
+              <div className="title-wrapper">
+                <h1 className="title">{item.title || item.name}</h1>
+                {/* NEW FAVORITE BUTTON */}
+                <button 
+                  className={`btn-favorite ${isFavorited ? 'active' : ''}`}
+                  onClick={() => toggleFavorite(item)}
+                >
+                  {isFavorited ? '❤️ Favorited' : '🤍 Add to Favorites'}
+                </button>
+              </div>
+
               <div className="genres">
                 {item.genres &&
                   item.genres.slice(0, 5).map((genre, index) => (
@@ -63,7 +80,6 @@ const Detail = () => {
                 <div className="section__header">
                   <h2>Casts</h2>
                 </div>
-                {/* casts list */}
                 <CastList id={item.id} />
               </div>
             </div>
