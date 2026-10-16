@@ -37,7 +37,7 @@ const Home = () => {
 
         <div className="section mb-3">
           <div className="section__header mb-2">
-            <h2>Trending TV</h2>
+            <h2>Trending Anime</h2>
             <Link to={`/${Config.HOME_PAGE}/tv`}>
               <OutlineButton className="small">View more</OutlineButton>
             </Link>
@@ -47,7 +47,7 @@ const Home = () => {
 
         <div className="section mb-3">
           <div className="section__header mb-2">
-            <h2>Top Rated TV</h2>
+            <h2>Top Rated Anime</h2>
             <Link to={`/${Config.HOME_PAGE}/tv`}>
               <OutlineButton className="small">View more</OutlineButton>
             </Link>
