@@ -1,17 +1,22 @@
 @use "../../scss/" as *;
 
+
 .logo {
-  font-size: 2.3rem;
+  /* Scales fluidly between 1.5rem (mobile) and 2.3rem (desktop) */
+  font-size: clamp(1.5rem, 2.5vw, 2.3rem);
   font-weight: 700;
 
   @include flex(center, unset);
 
   img {
     margin-right: 1px;
-    width: 100px;
+    /* Scales fluidly between 30px (mobile) and 100px (desktop) based on viewport width */
+    width: clamp(30px, 8vw, 100px);
+    transition: width 0.3s ease; // Smooths out changes if needed
 
     @include mobile {
-      width: 30px;
+      // You can keep or remove this block since clamp() handles it automatically now, 
+      // but keeping it ensures a hard fallback if needed.
       margin-right: 0;
     }
   }
@@ -88,10 +93,21 @@
       & > * ~ * {
         margin-left: 0;
       }
+
+      /* --- ADJUSTED MOBILE STYLES FOR NAV ITEMS --- */
+      li {
+        font-size: 1.2rem; // Smaller font size for mobile bottom bar
+        padding: 0;
+
+        // Optional: remove underline effect on mobile if it clutters the bottom bar
+        &:after {
+          display: none; 
+        }
+      }
     }
   }
 
-  /* --- NEW AUTH STYLES ADDED HERE --- */
+  /* --- AUTH STYLES --- */
   &__auth {
     @include flex(center, unset);
     gap: 1.5rem;
@@ -121,9 +137,7 @@
     }
 
     @include mobile {
-      /* Hides the buttons on mobile so they don't clash with your bottom nav bar */
       display: none; 
     }
   }
-  /* ---------------------------------- */
 }
