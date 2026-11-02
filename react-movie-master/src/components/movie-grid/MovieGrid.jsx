@@ -7,11 +7,7 @@ import Button, { OutlineButton } from "../button/Button";
 import Input from "../input/Input";
 import * as Config from "./../../constants/Config";
 
-// 1. FIXED FILE PATH: Adjust this relative path based on where you saved the JSON file.
-// For example, if it's placed in src/data/top10_movies_by_genre.json:
-import customGenreData from "./top10_movies_by_genre.json"; 
-// OR if it's in the same folder as MovieGrid.jsx:
-// import customGenreData from "./top10_movies_by_genre.json";
+import customGenreData from "./top10_movies_by_genre.json";
 
 const MovieGrid = (props) => {
   const [items, setItems] = useState([]);
@@ -24,7 +20,37 @@ const MovieGrid = (props) => {
     const getList = async () => {
       if (genreName) {
         const genreMovies = customGenreData[genreName.toLowerCase()] || [];
-        setItems(genreMovies);
+        console.log("Raw movies from JSON for genre:", genreName, genreMovies);
+
+        // Fetch posters from TMDB with cleaned titles
+        const enrichedMovies = await Promise.all(
+          genreMovies.map(async (movie) => {
+            try {
+              // Remove the year in parentheses (e.g., "Toy Story (1995)" -> "Toy Story")
+              const cleanTitle = movie.title ? movie.title.replace(/\s*\(\d{4}\)$/, "").trim() : movie.title;
+              
+              const response = await tmdbApi.search(props.category, {
+                params: { query: cleanTitle },
+              });
+              
+              console.log(`Searching TMDB for: "${cleanTitle}"`, response);
+              const match = response.results && response.results[0];
+              
+              return {
+                ...movie,
+                id: match ? match.id : movie.id,
+                poster_path: match ? match.poster_path : null,
+                backdrop_path: match ? match.backdrop_path : null,
+              };
+            } catch (err) {
+              console.error("Error fetching poster for:", movie.title, err);
+              return movie;
+            }
+          })
+        );
+
+        console.log("Enriched movies with posters:", enrichedMovies);
+        setItems(enrichedMovies);
         setTotalPage(1);
       } else if (keyword === undefined) {
         const params = {};
@@ -49,7 +75,7 @@ const MovieGrid = (props) => {
   }, [keyword, genreName, props.category]);
 
   const loadMore = useCallback(async () => {
-    // Pagination logic if needed
+    // Pagination placeholder
   }, []);
 
   return (
@@ -66,11 +92,19 @@ const MovieGrid = (props) => {
           <MovieCard key={index} category={props.category} item={item} />
         ))}
       </div>
+      {page < totalPage ? (
+        <div className="movie-grid__loadmore">
+          <OutlineButton className="small" onClick={loadMore}>
+            Load more
+          </OutlineButton>
+        </div>
+      ) : (
+        ""
+      )}
     </>
   );
 };
 
-// 2. DEFINED MOVIE SEARCH COMPONENT
 const MovieSearch = (props) => {
   const history = useHistory();
   const [keyword, setKeyword] = useState(props.keyword ? props.keyword : "");
@@ -111,7 +145,6 @@ const MovieSearch = (props) => {
   );
 };
 
-// 3. DEFINED MOVIE GENRE COMPONENT
 const MovieGenre = (props) => {
   const history = useHistory();
   const [genre, setGenre] = useState("");
@@ -146,5 +179,4 @@ const MovieGenre = (props) => {
   );
 };
 
-// 4. FIXED DEFAULT EXPORT
 export default MovieGrid;

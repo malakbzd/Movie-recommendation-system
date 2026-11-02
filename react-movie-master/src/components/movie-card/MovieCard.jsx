@@ -1,11 +1,7 @@
 import React from "react";
-
 import "./movie-card.scss";
-
 import { Link } from "react-router-dom";
-
 import Button from "../button/Button";
-
 import { category } from "../../api/tmdbApi";
 import apiConfig from "../../api/apiConfig";
 import * as Config from "./../../constants/Config";
@@ -16,7 +12,10 @@ const MovieCard = (props) => {
   const link =
     "/" + Config.HOME_PAGE + "/" + category[props.category] + "/" + item.id;
 
-  const bg = apiConfig.w500Image(item.poster_path || item.backdrop_path);
+  // Check if poster_path exists. If not, use a default placeholder image URL or fallback
+  const bg = (item.poster_path || item.backdrop_path)
+    ? apiConfig.w500Image(item.poster_path || item.backdrop_path)
+    : "https://via.placeholder.com/500x750?text=No+Image+Available"; // Fallback placeholder
 
   return (
     <Link to={link}>
