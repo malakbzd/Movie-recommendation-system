@@ -18,6 +18,12 @@ const Routes = () => {
       <Route path="/register" component={Register} />
       <Route path="/preferences" component={Preferences} />
 
+      {/* 1. ADD THIS: Route for Genre View */}
+      <Route
+        path={`/${Config.HOME_PAGE}/:category/genre/:genreName`}
+        render={(props) => <Catalog {...props} isGenre={true} />}
+      />
+
       <Route
         path={`/${Config.HOME_PAGE}/:category/search/:keyword`}
         component={Catalog}

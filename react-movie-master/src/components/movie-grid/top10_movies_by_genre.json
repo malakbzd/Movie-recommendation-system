@@ -1,0 +1,920 @@
+{
+    "action": [
+        {
+            "title": "Princess Mononoke (Mononoke-hime) (1997)",
+            "avg_rating": 4.384615384615385,
+            "num_ratings": 52
+        },
+        {
+            "title": "North by Northwest (1959)",
+            "avg_rating": 4.273972602739726,
+            "num_ratings": 73
+        },
+        {
+            "title": "Matrix, The (1999)",
+            "avg_rating": 4.264367816091954,
+            "num_ratings": 261
+        },
+        {
+            "title": "Star Wars: Episode V - The Empire Strikes Back (1980)",
+            "avg_rating": 4.228070175438597,
+            "num_ratings": 228
+        },
+        {
+            "title": "Seven Samurai (Shichinin no samurai) (1954)",
+            "avg_rating": 4.217741935483871,
+            "num_ratings": 62
+        },
+        {
+            "title": "Raiders of the Lost Ark (Indiana Jones and the Raiders of the Lost Ark) (1981)",
+            "avg_rating": 4.212053571428571,
+            "num_ratings": 224
+        },
+        {
+            "title": "Inception (2010)",
+            "avg_rating": 4.189320388349515,
+            "num_ratings": 103
+        },
+        {
+            "title": "Star Wars: Episode IV - A New Hope (1977)",
+            "avg_rating": 4.188644688644689,
+            "num_ratings": 273
+        },
+        {
+            "title": "Fight Club (1999)",
+            "avg_rating": 4.188405797101449,
+            "num_ratings": 207
+        },
+        {
+            "title": "Blade Runner (1982)",
+            "avg_rating": 4.169871794871795,
+            "num_ratings": 156
+        }
+    ],
+    "adventure": [
+        {
+            "title": "Princess Mononoke (Mononoke-hime) (1997)",
+            "avg_rating": 4.384615384615385,
+            "num_ratings": 52
+        },
+        {
+            "title": "Monty Python and the Holy Grail (1975)",
+            "avg_rating": 4.3019480519480515,
+            "num_ratings": 154
+        },
+        {
+            "title": "North by Northwest (1959)",
+            "avg_rating": 4.273972602739726,
+            "num_ratings": 73
+        },
+        {
+            "title": "Spirited Away (Sen to Chihiro no kamikakushi) (2001)",
+            "avg_rating": 4.236111111111111,
+            "num_ratings": 72
+        },
+        {
+            "title": "Star Wars: Episode V - The Empire Strikes Back (1980)",
+            "avg_rating": 4.228070175438597,
+            "num_ratings": 228
+        },
+        {
+            "title": "Seven Samurai (Shichinin no samurai) (1954)",
+            "avg_rating": 4.217741935483871,
+            "num_ratings": 62
+        },
+        {
+            "title": "Raiders of the Lost Ark (Indiana Jones and the Raiders of the Lost Ark) (1981)",
+            "avg_rating": 4.212053571428571,
+            "num_ratings": 224
+        },
+        {
+            "title": "Star Wars: Episode IV - A New Hope (1977)",
+            "avg_rating": 4.188644688644689,
+            "num_ratings": 273
+        },
+        {
+            "title": "Lawrence of Arabia (1962)",
+            "avg_rating": 4.166666666666667,
+            "num_ratings": 60
+        },
+        {
+            "title": "Princess Bride, The (1987)",
+            "avg_rating": 4.16374269005848,
+            "num_ratings": 171
+        }
+    ],
+    "animation": [
+        {
+            "title": "Princess Mononoke (Mononoke-hime) (1997)",
+            "avg_rating": 4.384615384615385,
+            "num_ratings": 52
+        },
+        {
+            "title": "Spirited Away (Sen to Chihiro no kamikakushi) (2001)",
+            "avg_rating": 4.236111111111111,
+            "num_ratings": 72
+        },
+        {
+            "title": "Wallace & Gromit: The Wrong Trousers (1993)",
+            "avg_rating": 4.1688311688311686,
+            "num_ratings": 77
+        },
+        {
+            "title": "Wallace & Gromit: A Close Shave (1995)",
+            "avg_rating": 4.163636363636364,
+            "num_ratings": 55
+        },
+        {
+            "title": "Up (2009)",
+            "avg_rating": 4.153225806451613,
+            "num_ratings": 62
+        },
+        {
+            "title": "Iron Giant, The (1999)",
+            "avg_rating": 4.0,
+            "num_ratings": 51
+        },
+        {
+            "title": "WALL\u00b7E (2008)",
+            "avg_rating": 3.932098765432099,
+            "num_ratings": 81
+        },
+        {
+            "title": "Incredibles, The (2004)",
+            "avg_rating": 3.926470588235294,
+            "num_ratings": 102
+        },
+        {
+            "title": "Toy Story 2 (1999)",
+            "avg_rating": 3.9134615384615383,
+            "num_ratings": 104
+        },
+        {
+            "title": "Toy Story (1995)",
+            "avg_rating": 3.9073275862068964,
+            "num_ratings": 232
+        }
+    ],
+    "children": [
+        {
+            "title": "Wallace & Gromit: The Wrong Trousers (1993)",
+            "avg_rating": 4.1688311688311686,
+            "num_ratings": 77
+        },
+        {
+            "title": "Wallace & Gromit: A Close Shave (1995)",
+            "avg_rating": 4.163636363636364,
+            "num_ratings": 55
+        },
+        {
+            "title": "Up (2009)",
+            "avg_rating": 4.153225806451613,
+            "num_ratings": 62
+        },
+        {
+            "title": "Christmas Story, A (1983)",
+            "avg_rating": 4.122950819672131,
+            "num_ratings": 61
+        },
+        {
+            "title": "Wizard of Oz, The (1939)",
+            "avg_rating": 4.09009009009009,
+            "num_ratings": 111
+        },
+        {
+            "title": "Iron Giant, The (1999)",
+            "avg_rating": 4.0,
+            "num_ratings": 51
+        },
+        {
+            "title": "Mary Poppins (1964)",
+            "avg_rating": 3.962962962962963,
+            "num_ratings": 54
+        },
+        {
+            "title": "WALL\u00b7E (2008)",
+            "avg_rating": 3.932098765432099,
+            "num_ratings": 81
+        },
+        {
+            "title": "Incredibles, The (2004)",
+            "avg_rating": 3.926470588235294,
+            "num_ratings": 102
+        },
+        {
+            "title": "Toy Story 2 (1999)",
+            "avg_rating": 3.9134615384615383,
+            "num_ratings": 104
+        }
+    ],
+    "comedy": [
+        {
+            "title": "Monty Python and the Holy Grail (1975)",
+            "avg_rating": 4.3019480519480515,
+            "num_ratings": 154
+        },
+        {
+            "title": "Fargo (1996)",
+            "avg_rating": 4.2711442786069655,
+            "num_ratings": 201
+        },
+        {
+            "title": "Life Is Beautiful (La Vita \u00e8 bella) (1997)",
+            "avg_rating": 4.2534246575342465,
+            "num_ratings": 73
+        },
+        {
+            "title": "Sting, The (1973)",
+            "avg_rating": 4.207792207792208,
+            "num_ratings": 77
+        },
+        {
+            "title": "Annie Hall (1977)",
+            "avg_rating": 4.205882352941177,
+            "num_ratings": 68
+        },
+        {
+            "title": "My Fair Lady (1964)",
+            "avg_rating": 4.17,
+            "num_ratings": 50
+        },
+        {
+            "title": "Wallace & Gromit: The Wrong Trousers (1993)",
+            "avg_rating": 4.1688311688311686,
+            "num_ratings": 77
+        },
+        {
+            "title": "Princess Bride, The (1987)",
+            "avg_rating": 4.16374269005848,
+            "num_ratings": 171
+        },
+        {
+            "title": "Wallace & Gromit: A Close Shave (1995)",
+            "avg_rating": 4.163636363636364,
+            "num_ratings": 55
+        },
+        {
+            "title": "Pulp Fiction (1994)",
+            "avg_rating": 4.16,
+            "num_ratings": 325
+        }
+    ],
+    "crime": [
+        {
+            "title": "Shawshank Redemption, The (1994)",
+            "avg_rating": 4.454545454545454,
+            "num_ratings": 308
+        },
+        {
+            "title": "Godfather, The (1972)",
+            "avg_rating": 4.392857142857143,
+            "num_ratings": 210
+        },
+        {
+            "title": "Usual Suspects, The (1995)",
+            "avg_rating": 4.328947368421052,
+            "num_ratings": 228
+        },
+        {
+            "title": "Chinatown (1974)",
+            "avg_rating": 4.323529411764706,
+            "num_ratings": 68
+        },
+        {
+            "title": "Fargo (1996)",
+            "avg_rating": 4.2711442786069655,
+            "num_ratings": 201
+        },
+        {
+            "title": "Godfather: Part II, The (1974)",
+            "avg_rating": 4.260714285714286,
+            "num_ratings": 140
+        },
+        {
+            "title": "Goodfellas (1990)",
+            "avg_rating": 4.2592592592592595,
+            "num_ratings": 135
+        },
+        {
+            "title": "Departed, The (2006)",
+            "avg_rating": 4.258620689655173,
+            "num_ratings": 87
+        },
+        {
+            "title": "Sting, The (1973)",
+            "avg_rating": 4.207792207792208,
+            "num_ratings": 77
+        },
+        {
+            "title": "Silence of the Lambs, The (1991)",
+            "avg_rating": 4.194827586206896,
+            "num_ratings": 290
+        }
+    ],
+    "documentary": [
+        {
+            "title": "Bowling for Columbine (2002)",
+            "avg_rating": 3.7549019607843137,
+            "num_ratings": 51
+        }
+    ],
+    "drama": [
+        {
+            "title": "Shawshank Redemption, The (1994)",
+            "avg_rating": 4.454545454545454,
+            "num_ratings": 308
+        },
+        {
+            "title": "Citizen Kane (1941)",
+            "avg_rating": 4.396103896103896,
+            "num_ratings": 77
+        },
+        {
+            "title": "Godfather, The (1972)",
+            "avg_rating": 4.392857142857143,
+            "num_ratings": 210
+        },
+        {
+            "title": "Princess Mononoke (Mononoke-hime) (1997)",
+            "avg_rating": 4.384615384615385,
+            "num_ratings": 52
+        },
+        {
+            "title": "Schindler's List (1993)",
+            "avg_rating": 4.296370967741935,
+            "num_ratings": 248
+        },
+        {
+            "title": "One Flew Over the Cuckoo's Nest (1975)",
+            "avg_rating": 4.2727272727272725,
+            "num_ratings": 143
+        },
+        {
+            "title": "Fargo (1996)",
+            "avg_rating": 4.2711442786069655,
+            "num_ratings": 201
+        },
+        {
+            "title": "Godfather: Part II, The (1974)",
+            "avg_rating": 4.260714285714286,
+            "num_ratings": 140
+        },
+        {
+            "title": "Goodfellas (1990)",
+            "avg_rating": 4.2592592592592595,
+            "num_ratings": 135
+        },
+        {
+            "title": "Departed, The (2006)",
+            "avg_rating": 4.258620689655173,
+            "num_ratings": 87
+        }
+    ],
+    "fantasy": [
+        {
+            "title": "Princess Mononoke (Mononoke-hime) (1997)",
+            "avg_rating": 4.384615384615385,
+            "num_ratings": 52
+        },
+        {
+            "title": "Monty Python and the Holy Grail (1975)",
+            "avg_rating": 4.3019480519480515,
+            "num_ratings": 154
+        },
+        {
+            "title": "Spirited Away (Sen to Chihiro no kamikakushi) (2001)",
+            "avg_rating": 4.236111111111111,
+            "num_ratings": 72
+        },
+        {
+            "title": "Princess Bride, The (1987)",
+            "avg_rating": 4.16374269005848,
+            "num_ratings": 171
+        },
+        {
+            "title": "Lord of the Rings: The Fellowship of the Ring, The (2001)",
+            "avg_rating": 4.126984126984127,
+            "num_ratings": 189
+        },
+        {
+            "title": "Lord of the Rings: The Return of the King, The (2003)",
+            "avg_rating": 4.108433734939759,
+            "num_ratings": 166
+        },
+        {
+            "title": "Lord of the Rings: The Two Towers, The (2002)",
+            "avg_rating": 4.095808383233533,
+            "num_ratings": 167
+        },
+        {
+            "title": "Wizard of Oz, The (1939)",
+            "avg_rating": 4.09009009009009,
+            "num_ratings": 111
+        },
+        {
+            "title": "Brazil (1985)",
+            "avg_rating": 4.0479452054794525,
+            "num_ratings": 73
+        },
+        {
+            "title": "Being John Malkovich (1999)",
+            "avg_rating": 4.016129032258065,
+            "num_ratings": 124
+        }
+    ],
+    "film-noir": [
+        {
+            "title": "Chinatown (1974)",
+            "avg_rating": 4.323529411764706,
+            "num_ratings": 68
+        },
+        {
+            "title": "Maltese Falcon, The (1941)",
+            "avg_rating": 4.169354838709677,
+            "num_ratings": 62
+        },
+        {
+            "title": "L.A. Confidential (1997)",
+            "avg_rating": 4.156934306569343,
+            "num_ratings": 137
+        },
+        {
+            "title": "Dark City (1998)",
+            "avg_rating": 3.9661016949152543,
+            "num_ratings": 59
+        },
+        {
+            "title": "Sin City (2005)",
+            "avg_rating": 3.91875,
+            "num_ratings": 80
+        }
+    ],
+    "horror": [
+        {
+            "title": "Silence of the Lambs, The (1991)",
+            "avg_rating": 4.194827586206896,
+            "num_ratings": 290
+        },
+        {
+            "title": "Psycho (1960)",
+            "avg_rating": 4.186046511627907,
+            "num_ratings": 86
+        },
+        {
+            "title": "Aliens (1986)",
+            "avg_rating": 4.146496815286624,
+            "num_ratings": 157
+        },
+        {
+            "title": "Sixth Sense, The (1999)",
+            "avg_rating": 4.130890052356021,
+            "num_ratings": 191
+        },
+        {
+            "title": "Alien (1979)",
+            "avg_rating": 4.064102564102564,
+            "num_ratings": 156
+        },
+        {
+            "title": "Shaun of the Dead (2004)",
+            "avg_rating": 4.05,
+            "num_ratings": 60
+        },
+        {
+            "title": "Shining, The (1980)",
+            "avg_rating": 4.004464285714286,
+            "num_ratings": 112
+        },
+        {
+            "title": "28 Days Later (2002)",
+            "avg_rating": 3.9328358208955225,
+            "num_ratings": 67
+        },
+        {
+            "title": "Exorcist, The (1973)",
+            "avg_rating": 3.856060606060606,
+            "num_ratings": 66
+        },
+        {
+            "title": "Birds, The (1963)",
+            "avg_rating": 3.85,
+            "num_ratings": 50
+        }
+    ],
+    "imax": [
+        {
+            "title": "Inception (2010)",
+            "avg_rating": 4.189320388349515,
+            "num_ratings": 103
+        },
+        {
+            "title": "Dark Knight, The (2008)",
+            "avg_rating": 4.141732283464567,
+            "num_ratings": 127
+        },
+        {
+            "title": "Batman Begins (2005)",
+            "avg_rating": 4.03960396039604,
+            "num_ratings": 101
+        },
+        {
+            "title": "V for Vendetta (2006)",
+            "avg_rating": 4.01595744680851,
+            "num_ratings": 94
+        },
+        {
+            "title": "Apollo 13 (1995)",
+            "avg_rating": 3.969543147208122,
+            "num_ratings": 197
+        },
+        {
+            "title": "Avatar (2009)",
+            "avg_rating": 3.856060606060606,
+            "num_ratings": 66
+        },
+        {
+            "title": "Star Trek (2009)",
+            "avg_rating": 3.8333333333333335,
+            "num_ratings": 51
+        },
+        {
+            "title": "Lion King, The (1994)",
+            "avg_rating": 3.7709497206703912,
+            "num_ratings": 179
+        },
+        {
+            "title": "Harry Potter and the Prisoner of Azkaban (2004)",
+            "avg_rating": 3.7301587301587302,
+            "num_ratings": 63
+        },
+        {
+            "title": "300 (2007)",
+            "avg_rating": 3.5779220779220777,
+            "num_ratings": 77
+        }
+    ],
+    "musical": [
+        {
+            "title": "My Fair Lady (1964)",
+            "avg_rating": 4.17,
+            "num_ratings": 50
+        },
+        {
+            "title": "Wizard of Oz, The (1939)",
+            "avg_rating": 4.09009009009009,
+            "num_ratings": 111
+        },
+        {
+            "title": "Sound of Music, The (1965)",
+            "avg_rating": 3.9655172413793105,
+            "num_ratings": 58
+        },
+        {
+            "title": "Mary Poppins (1964)",
+            "avg_rating": 3.962962962962963,
+            "num_ratings": 54
+        },
+        {
+            "title": "Blues Brothers, The (1980)",
+            "avg_rating": 3.8434343434343434,
+            "num_ratings": 99
+        },
+        {
+            "title": "Nightmare Before Christmas, The (1993)",
+            "avg_rating": 3.8333333333333335,
+            "num_ratings": 84
+        },
+        {
+            "title": "Snow White and the Seven Dwarfs (1937)",
+            "avg_rating": 3.8194444444444446,
+            "num_ratings": 72
+        },
+        {
+            "title": "Willy Wonka & the Chocolate Factory (1971)",
+            "avg_rating": 3.786764705882353,
+            "num_ratings": 136
+        },
+        {
+            "title": "Lion King, The (1994)",
+            "avg_rating": 3.7709497206703912,
+            "num_ratings": 179
+        },
+        {
+            "title": "Fantasia (1940)",
+            "avg_rating": 3.735294117647059,
+            "num_ratings": 68
+        }
+    ],
+    "mystery": [
+        {
+            "title": "Citizen Kane (1941)",
+            "avg_rating": 4.396103896103896,
+            "num_ratings": 77
+        },
+        {
+            "title": "Rear Window (1954)",
+            "avg_rating": 4.331081081081081,
+            "num_ratings": 74
+        },
+        {
+            "title": "Usual Suspects, The (1995)",
+            "avg_rating": 4.328947368421052,
+            "num_ratings": 228
+        },
+        {
+            "title": "Chinatown (1974)",
+            "avg_rating": 4.323529411764706,
+            "num_ratings": 68
+        },
+        {
+            "title": "North by Northwest (1959)",
+            "avg_rating": 4.273972602739726,
+            "num_ratings": 73
+        },
+        {
+            "title": "Inception (2010)",
+            "avg_rating": 4.189320388349515,
+            "num_ratings": 103
+        },
+        {
+            "title": "Vertigo (1958)",
+            "avg_rating": 4.169491525423729,
+            "num_ratings": 59
+        },
+        {
+            "title": "Maltese Falcon, The (1941)",
+            "avg_rating": 4.169354838709677,
+            "num_ratings": 62
+        },
+        {
+            "title": "L.A. Confidential (1997)",
+            "avg_rating": 4.156934306569343,
+            "num_ratings": 137
+        },
+        {
+            "title": "Sixth Sense, The (1999)",
+            "avg_rating": 4.130890052356021,
+            "num_ratings": 191
+        }
+    ],
+    "romance": [
+        {
+            "title": "North by Northwest (1959)",
+            "avg_rating": 4.273972602739726,
+            "num_ratings": 73
+        },
+        {
+            "title": "Life Is Beautiful (La Vita \u00e8 bella) (1997)",
+            "avg_rating": 4.2534246575342465,
+            "num_ratings": 73
+        },
+        {
+            "title": "Casablanca (1942)",
+            "avg_rating": 4.236,
+            "num_ratings": 125
+        },
+        {
+            "title": "Annie Hall (1977)",
+            "avg_rating": 4.205882352941177,
+            "num_ratings": 68
+        },
+        {
+            "title": "My Fair Lady (1964)",
+            "avg_rating": 4.17,
+            "num_ratings": 50
+        },
+        {
+            "title": "Vertigo (1958)",
+            "avg_rating": 4.169491525423729,
+            "num_ratings": 59
+        },
+        {
+            "title": "Good Will Hunting (1997)",
+            "avg_rating": 4.167857142857143,
+            "num_ratings": 140
+        },
+        {
+            "title": "Princess Bride, The (1987)",
+            "avg_rating": 4.16374269005848,
+            "num_ratings": 171
+        },
+        {
+            "title": "American Beauty (1999)",
+            "avg_rating": 4.157407407407407,
+            "num_ratings": 216
+        },
+        {
+            "title": "Forrest Gump (1994)",
+            "avg_rating": 4.138263665594855,
+            "num_ratings": 311
+        }
+    ],
+    "sci-fi": [
+        {
+            "title": "Matrix, The (1999)",
+            "avg_rating": 4.264367816091954,
+            "num_ratings": 261
+        },
+        {
+            "title": "Star Wars: Episode V - The Empire Strikes Back (1980)",
+            "avg_rating": 4.228070175438597,
+            "num_ratings": 228
+        },
+        {
+            "title": "Inception (2010)",
+            "avg_rating": 4.189320388349515,
+            "num_ratings": 103
+        },
+        {
+            "title": "Star Wars: Episode IV - A New Hope (1977)",
+            "avg_rating": 4.188644688644689,
+            "num_ratings": 273
+        },
+        {
+            "title": "Blade Runner (1982)",
+            "avg_rating": 4.169871794871795,
+            "num_ratings": 156
+        },
+        {
+            "title": "Aliens (1986)",
+            "avg_rating": 4.146496815286624,
+            "num_ratings": 157
+        },
+        {
+            "title": "Eternal Sunshine of the Spotless Mind (2004)",
+            "avg_rating": 4.122448979591836,
+            "num_ratings": 98
+        },
+        {
+            "title": "Alien (1979)",
+            "avg_rating": 4.064102564102564,
+            "num_ratings": 156
+        },
+        {
+            "title": "Brazil (1985)",
+            "avg_rating": 4.0479452054794525,
+            "num_ratings": 73
+        },
+        {
+            "title": "Star Wars: Episode VI - Return of the Jedi (1983)",
+            "avg_rating": 4.031531531531532,
+            "num_ratings": 222
+        }
+    ],
+    "thriller": [
+        {
+            "title": "Rear Window (1954)",
+            "avg_rating": 4.331081081081081,
+            "num_ratings": 74
+        },
+        {
+            "title": "Usual Suspects, The (1995)",
+            "avg_rating": 4.328947368421052,
+            "num_ratings": 228
+        },
+        {
+            "title": "Chinatown (1974)",
+            "avg_rating": 4.323529411764706,
+            "num_ratings": 68
+        },
+        {
+            "title": "North by Northwest (1959)",
+            "avg_rating": 4.273972602739726,
+            "num_ratings": 73
+        },
+        {
+            "title": "Fargo (1996)",
+            "avg_rating": 4.2711442786069655,
+            "num_ratings": 201
+        },
+        {
+            "title": "Matrix, The (1999)",
+            "avg_rating": 4.264367816091954,
+            "num_ratings": 261
+        },
+        {
+            "title": "Departed, The (2006)",
+            "avg_rating": 4.258620689655173,
+            "num_ratings": 87
+        },
+        {
+            "title": "Silence of the Lambs, The (1991)",
+            "avg_rating": 4.194827586206896,
+            "num_ratings": 290
+        },
+        {
+            "title": "Inception (2010)",
+            "avg_rating": 4.189320388349515,
+            "num_ratings": 103
+        },
+        {
+            "title": "Fight Club (1999)",
+            "avg_rating": 4.188405797101449,
+            "num_ratings": 207
+        }
+    ],
+    "war": [
+        {
+            "title": "Schindler's List (1993)",
+            "avg_rating": 4.296370967741935,
+            "num_ratings": 248
+        },
+        {
+            "title": "Life Is Beautiful (La Vita \u00e8 bella) (1997)",
+            "avg_rating": 4.2534246575342465,
+            "num_ratings": 73
+        },
+        {
+            "title": "Lawrence of Arabia (1962)",
+            "avg_rating": 4.166666666666667,
+            "num_ratings": 60
+        },
+        {
+            "title": "Bridge on the River Kwai, The (1957)",
+            "avg_rating": 4.159090909090909,
+            "num_ratings": 66
+        },
+        {
+            "title": "Forrest Gump (1994)",
+            "avg_rating": 4.138263665594855,
+            "num_ratings": 311
+        },
+        {
+            "title": "Full Metal Jacket (1987)",
+            "avg_rating": 4.126126126126126,
+            "num_ratings": 111
+        },
+        {
+            "title": "Great Escape, The (1963)",
+            "avg_rating": 4.125,
+            "num_ratings": 56
+        },
+        {
+            "title": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb (1964)",
+            "avg_rating": 4.116,
+            "num_ratings": 125
+        },
+        {
+            "title": "Braveheart (1995)",
+            "avg_rating": 4.108870967741935,
+            "num_ratings": 248
+        },
+        {
+            "title": "Boot, Das (Boat, The) (1981)",
+            "avg_rating": 4.102564102564102,
+            "num_ratings": 78
+        }
+    ],
+    "western": [
+        {
+            "title": "Good, the Bad and the Ugly, The (Buono, il brutto, il cattivo, Il) (1966)",
+            "avg_rating": 3.962962962962963,
+            "num_ratings": 81
+        },
+        {
+            "title": "Unforgiven (1992)",
+            "avg_rating": 3.923076923076923,
+            "num_ratings": 65
+        },
+        {
+            "title": "Butch Cassidy and the Sundance Kid (1969)",
+            "avg_rating": 3.91025641025641,
+            "num_ratings": 78
+        },
+        {
+            "title": "Blazing Saddles (1974)",
+            "avg_rating": 3.8365384615384617,
+            "num_ratings": 52
+        },
+        {
+            "title": "Last of the Mohicans, The (1992)",
+            "avg_rating": 3.7982456140350878,
+            "num_ratings": 57
+        },
+        {
+            "title": "Dances with Wolves (1990)",
+            "avg_rating": 3.7661691542288556,
+            "num_ratings": 201
+        },
+        {
+            "title": "Legends of the Fall (1994)",
+            "avg_rating": 3.668918918918919,
+            "num_ratings": 74
+        },
+        {
+            "title": "Tombstone (1993)",
+            "avg_rating": 3.638888888888889,
+            "num_ratings": 72
+        },
+        {
+            "title": "Maverick (1994)",
+            "avg_rating": 3.5470588235294116,
+            "num_ratings": 85
+        },
+        {
+            "title": "Back to the Future Part III (1990)",
+            "avg_rating": 3.3763440860215055,
+            "num_ratings": 93
+        }
+    ]
+}
