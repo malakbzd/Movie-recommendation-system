@@ -12,7 +12,7 @@ import Routes from "./routes/Routes";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/react-movie-app">
       <Route
         render={(props) => (
           <>

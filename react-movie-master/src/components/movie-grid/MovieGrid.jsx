@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import "./movie-grid.scss";
 import { useHistory, useParams } from "react-router";
 import MovieCard from "./../movie-card/MovieCard";
-import tmdbApi, { category, movieType, tvType } from "../../api/tmdbApi";
+import tmdbApi, { category, movieType } from "../../api/tmdbApi";
 import Button, { OutlineButton } from "../button/Button";
 import Input from "../input/Input";
 import * as Config from "./../../constants/Config";
@@ -11,7 +11,6 @@ import customGenreData from "./top10_movies_by_genre.json";
 
 const MovieGrid = (props) => {
   const [items, setItems] = useState([]);
-  const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
 
   const { keyword, genreName } = useParams();
@@ -20,54 +19,50 @@ const MovieGrid = (props) => {
     const getList = async () => {
       if (genreName) {
         const genreMovies = customGenreData[genreName.toLowerCase()] || [];
-        console.log("Raw movies from JSON for genre:", genreName, genreMovies);
 
-        // Fetch posters from TMDB with cleaned titles
+        // Fetch valid TMDB IDs and posters with cleaned titles
         const enrichedMovies = await Promise.all(
           genreMovies.map(async (movie) => {
             try {
-              // Remove the year in parentheses (e.g., "Toy Story (1995)" -> "Toy Story")
               const cleanTitle = movie.title ? movie.title.replace(/\s*\(\d{4}\)$/, "").trim() : movie.title;
               
               const response = await tmdbApi.search(props.category, {
                 params: { query: cleanTitle },
               });
               
-              console.log(`Searching TMDB for: "${cleanTitle}"`, response);
               const match = response.results && response.results[0];
               
-              return {
-                ...movie,
-                id: match ? match.id : movie.id,
-                poster_path: match ? match.poster_path : null,
-                backdrop_path: match ? match.backdrop_path : null,
-              };
+              if (match && match.id && match.poster_path) {
+                return {
+                  ...movie,
+                  id: match.id,
+                  title: match.title || match.name || cleanTitle,
+                  poster_path: match.poster_path,
+                  backdrop_path: match.backdrop_path,
+                };
+              }
+              return null;
             } catch (err) {
-              console.error("Error fetching poster for:", movie.title, err);
-              return movie;
+              return null;
             }
           })
         );
 
-        console.log("Enriched movies with posters:", enrichedMovies);
-        setItems(enrichedMovies);
+        const validMovies = enrichedMovies.filter(item => item !== null);
+        setItems(validMovies);
         setTotalPage(1);
       } else if (keyword === undefined) {
         const params = {};
-        let response = null;
-        switch (props.category) {
-          case category.movie:
-            response = await tmdbApi.getMoviesList(movieType.upcoming, { params });
-            break;
-          default:
-            response = await tmdbApi.getTvList(tvType.popular, { params });
-        }
-        setItems(response.results);
+        // Default to upcoming movies since the dataset is movie-only
+        const response = await tmdbApi.getMoviesList(movieType.upcoming, { params });
+        const results = response.results || [];
+        setItems(results.filter(item => item && item.id && item.poster_path));
         setTotalPage(response.total_pages);
       } else {
         const params = { query: keyword };
         const response = await tmdbApi.search(props.category, { params });
-        setItems(response.results);
+        const results = response.results || [];
+        setItems(results.filter(item => item && item.id && item.poster_path));
         setTotalPage(response.total_pages);
       }
     };
@@ -92,15 +87,6 @@ const MovieGrid = (props) => {
           <MovieCard key={index} category={props.category} item={item} />
         ))}
       </div>
-      {page < totalPage ? (
-        <div className="movie-grid__loadmore">
-          <OutlineButton className="small" onClick={loadMore}>
-            Load more
-          </OutlineButton>
-        </div>
-      ) : (
-        ""
-      )}
     </>
   );
 };
@@ -112,7 +98,7 @@ const MovieSearch = (props) => {
   const goToSearch = useCallback(() => {
     if (keyword.trim().length > 0) {
       history.push(
-        `/${Config.HOME_PAGE}/${category[props.category]}/search/${keyword}`
+        `/${Config.HOME_PAGE}/${category[props.category] || 'movie'}/search/${keyword}`
       );
     }
   }, [keyword, props.category, history]);
@@ -160,7 +146,7 @@ const MovieGenre = (props) => {
     setGenre(selectedGenre);
     if (selectedGenre) {
       history.push(
-        `/${Config.HOME_PAGE}/${category[props.category]}/genre/${selectedGenre.toLowerCase()}`
+        `/${Config.HOME_PAGE}/${category[props.category] || 'movie'}/genre/${selectedGenre.toLowerCase()}`
       );
     }
   };

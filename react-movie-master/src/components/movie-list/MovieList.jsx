@@ -1,54 +1,92 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import './movie-list.scss';
 
-import "./movie-list.scss";
+import { SwiperSlide, Swiper } from 'swiper/react';
+import tmdbApi, { category } from '../../api/tmdbApi';
+import MovieCard from '../movie-card/MovieCard';
 
-import { SwiperSlide, Swiper } from "swiper/react";
+const MovieList = props => {
+    const [items, setItems] = useState([]);
 
-import MovieCard from "../movie-card/MovieCard";
+    useEffect(() => {
+        const getList = async () => {
+            if (props.movies && props.movies.length > 0) {
+                const enriched = await Promise.all(
+                    props.movies.map(async (movie) => {
+                        try {
+                            const res = await tmdbApi.search(category.movie, {
+                                params: { query: movie.title }
+                            });
+                            const match = res.results && res.results[0];
+                            
+                            // ONLY accept movies that successfully return a valid TMDB ID and poster
+                            if (match && match.id && match.poster_path) {
+                                return {
+                                    ...movie,
+                                    id: match.id, // Verified TMDB ID - guarantees zero 404s on click!
+                                    title: match.title || match.name,
+                                    poster_path: match.poster_path,
+                                    backdrop_path: match.backdrop_path,
+                                };
+                            }
+                            return null; // Discard unmatched movies
+                        } catch (err) {
+                            return null; // Discard on error
+                        }
+                    })
+                );
 
-import tmdbApi, { category } from "./../../api/tmdbApi";
+                // Filter out all nulls so only 100% working movies are rendered
+                const validItems = enriched.filter(item => item !== null);
+                setItems(validItems);
+                return;
+            }
 
-const MovieList = (props) => {
-  const [items, setItems] = useState([]);
+            // Fallback for standard TMDB sections
+            let response = null;
+            const params = {};
 
-  useEffect(() => {
-    const getList = async () => {
-      let response = null;
-      const params = {};
-
-      if (props.type !== "similar") {
-        switch (props.category) {
-          case category.movie:
-            response = await tmdbApi.getMoviesList(props.type, { params });
-            break;
-          default:
-            response = await tmdbApi.getTvList(props.type, { params });
+            if (props.type !== 'all') {
+                switch(props.category) {
+                    case category.movie:
+                        response = await tmdbApi.getMoviesList(props.type, {params});
+                        break;
+                    default:
+                        response = await tmdbApi.getTvList(props.type, {params});
+                }
+            } else {
+                response = await tmdbApi.similar(props.category, props.id);
+            }
+            
+            const results = response.results || [];
+            setItems(results.filter(item => item && item.id && item.poster_path));
         }
-      } else {
-        response = await tmdbApi.similar(props.category, props.id);
-      }
-      setItems(response.results);
-    };
-    getList();
-  }, [props.category, props.id, props.type]);
+        getList();
+    }, [props.movies, props.category, props.type, props.id]);
 
-  return (
-    <div className="movie-list">
-      <Swiper grabCursor={true} spaceBetween={10} slidesPerView={"auto"}>
-        {items.map((item, index) => (
-          <SwiperSlide key={index}>
-            <MovieCard item={item} category={props.category} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
-  );
-};
+    return (
+        <div className="movie-list">
+            <Swiper
+                grabCursor={true}
+                spaceBetween={10}
+                slidesPerView={'auto'}
+            >
+                {
+                    items.map((item, i) => (
+                        <SwiperSlide key={i}>
+                            <MovieCard category={props.category} item={item}/>
+                        </SwiperSlide>
+                    ))
+                }
+            </Swiper>
+        </div>
+    );
+}
 
 MovieList.propTypes = {
-  category: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-};
+    category: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired
+}
 
 export default MovieList;

@@ -19,11 +19,10 @@ axiosClient.interceptors.response.use(
     if (response && response.data) {
       return response.data;
     }
-
     return response;
   },
   (error) => {
-    throw error;
+    return Promise.reject(error);
   }
 );
 

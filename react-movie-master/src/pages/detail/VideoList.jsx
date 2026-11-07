@@ -1,18 +1,21 @@
 import React, { useEffect, useRef, useState } from "react";
-
 import { useParams } from "react-router";
-
 import tmdbApi from "../../api/tmdbApi";
 
 const VideoList = (props) => {
   const { category } = useParams();
-
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
     const getVideos = async () => {
-      const response = await tmdbApi.getVideos(category, props.id);
-      setVideos(response.results.slice(0, 5));
+      if (!props.id) return;
+      try {
+        const response = await tmdbApi.getVideos(category, props.id);
+        setVideos(response.results ? response.results.slice(0, 5) : []);
+      } catch (err) {
+        // Silently catch error so the page never crashes with a 404 overlay
+        setVideos([]);
+      }
     };
     getVideos();
   }, [category, props.id]);
@@ -28,12 +31,13 @@ const VideoList = (props) => {
 
 const Video = (props) => {
   const item = props.item;
-
   const iframeRef = useRef(null);
 
   useEffect(() => {
-    const height = (iframeRef.current.offsetWidth * 9) / 16 + "px";
-    iframeRef.current.setAttribute("height", height);
+    if (iframeRef.current) {
+      const height = (iframeRef.current.offsetWidth * 9) / 16 + "px";
+      iframeRef.current.setAttribute("height", height);
+    }
   }, []);
 
   return (

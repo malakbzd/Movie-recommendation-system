@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from "react";
-
 import { useParams } from "react-router";
-
 import tmdbApi from "../../api/tmdbApi";
 import apiConfig from "../../api/apiConfig";
 
 const CastList = (props) => {
   const { category } = useParams();
-
   const [casts, setCasts] = useState([]);
 
   useEffect(() => {
     const getCredits = async () => {
-      const response = await tmdbApi.credits(category, props.id);
-      setCasts(response.cast.slice(0, 5));
+      if (!props.id) return;
+      try {
+        const response = await tmdbApi.credits(category, props.id);
+        setCasts(response.cast ? response.cast.slice(0, 5) : []);
+      } catch (err) {
+        // Silently catch error so the page never crashes with a 404 overlay
+        setCasts([]);
+      }
     };
     getCredits();
   }, [category, props.id]);

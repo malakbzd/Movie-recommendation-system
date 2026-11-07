@@ -5,54 +5,66 @@ import { OutlineButton } from "../components/button/Button";
 import HeroSlide from "../components/hero-slide/HeroSlide";
 import MovieList from "../components/movie-list/MovieList";
 
-import { category, movieType, tvType } from "../api/tmdbApi";
-
+import { category } from "../api/tmdbApi";
 import * as Config from "./../constants/Config";
 
+// Import your exact MovieLens top 10 dataset JSON file
+import customGenreData from "../components/movie-grid/top10_movies_by_genre.json";
+
 const Home = () => {
+  // Grab specific genres from your JSON file safely (defaults to empty array if missing)
+  const actionMovies = customGenreData["action"] || [];
+  const dramaMovies = customGenreData["drama"] || [];
+  const animationMovies = customGenreData["animation"] || [];
+  const topRatedOverall = customGenreData["drama"] || []; // Or whichever genre represents your top tier
+
   return (
     <>
       <HeroSlide />
 
       <div className="container">
-        <div className="section mb-3">
-          <div className="section__header mb-2">
-            <h2>Trending Movies</h2>
-            <Link to={`/${Config.HOME_PAGE}/movie`}>
-              <OutlineButton className="small">View more</OutlineButton>
-            </Link>
-          </div>
-          <MovieList category={category.movie} type={movieType.popular} />
-        </div>
-
+        {/* Section 1: Top Rated Movies */}
         <div className="section mb-3">
           <div className="section__header mb-2">
             <h2>Top Rated Movies</h2>
-            <Link to={`/${Config.HOME_PAGE}/movie`}>
+            <Link to={`/${Config.HOME_PAGE}/movie/genre/drama`}>
               <OutlineButton className="small">View more</OutlineButton>
             </Link>
           </div>
-          <MovieList category={category.movie} type={movieType.top_rated} />
+          <MovieList category={category.movie} type="custom" movies={topRatedOverall} />
         </div>
 
+        {/* Section 2: Top Rated Action Movies */}
         <div className="section mb-3">
           <div className="section__header mb-2">
-            <h2>Trending Anime</h2>
-            <Link to={`/${Config.HOME_PAGE}/tv`}>
+            <h2>Top Rated Action Movies</h2>
+            <Link to={`/${Config.HOME_PAGE}/movie/genre/action`}>
               <OutlineButton className="small">View more</OutlineButton>
             </Link>
           </div>
-          <MovieList category={category.tv} type={tvType.popular} />
+          <MovieList category={category.movie} type="custom" movies={actionMovies} />
         </div>
 
+        {/* Section 3: Top Rated Drama Movies */}
         <div className="section mb-3">
           <div className="section__header mb-2">
-            <h2>Top Rated Anime</h2>
-            <Link to={`/${Config.HOME_PAGE}/tv`}>
+            <h2>Top Rated Drama Movies</h2>
+            <Link to={`/${Config.HOME_PAGE}/movie/genre/drama`}>
               <OutlineButton className="small">View more</OutlineButton>
             </Link>
           </div>
-          <MovieList category={category.tv} type={tvType.top_rated} />
+          <MovieList category={category.movie} type="custom" movies={dramaMovies} />
+        </div>
+
+        {/* Section 4: Top Rated Animation */}
+        <div className="section mb-3">
+          <div className="section__header mb-2">
+            <h2>Top Rated Animation</h2>
+            <Link to={`/${Config.HOME_PAGE}/movie/genre/animation`}>
+              <OutlineButton className="small">View more</OutlineButton>
+            </Link>
+          </div>
+          <MovieList category={category.movie} type="custom" movies={animationMovies} />
         </div>
       </div>
     </>

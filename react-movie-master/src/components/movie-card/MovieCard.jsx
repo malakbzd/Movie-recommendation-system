@@ -9,16 +9,23 @@ import * as Config from "./../../constants/Config";
 const MovieCard = (props) => {
   const item = props.item;
 
-  const link =
-    "/" + Config.HOME_PAGE + "/" + category[props.category] + "/" + item.id;
+  // PRINT TO CONSOLE TO SEE WHICH MOVIE HAS A BAD ID
+  const handleClick = () => {
+    console.log("Clicked movie item:", item);
+  };
 
-  // Check if poster_path exists. If not, use a default placeholder image URL or fallback
+  const catString = typeof props.category === 'string' 
+    ? props.category 
+    : (category[props.category] || 'movie');
+
+  const link = `/${Config.HOME_PAGE}/${catString}/${item.id}`;
+
   const bg = (item.poster_path || item.backdrop_path)
     ? apiConfig.w500Image(item.poster_path || item.backdrop_path)
-    : "https://via.placeholder.com/500x750?text=No+Image+Available"; // Fallback placeholder
+    : "https://via.placeholder.com/500x750?text=No+Image+Available";
 
   return (
-    <Link to={link}>
+    <Link to={link} onClick={handleClick}>
       <div className="movie-card" style={{ backgroundImage: `url(${bg})` }}>
         <Button>
           <i className="bx bx-play"></i>

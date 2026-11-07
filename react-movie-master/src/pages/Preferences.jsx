@@ -5,7 +5,7 @@ import { AuthContext } from '../context/AuthContext';
 import './../scss/auth.scss';
 
 const Preferences = () => {
-  const { currentUser, updatePreferences } = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
   const [error, setError] = useState('');
   const history = useHistory();
 
