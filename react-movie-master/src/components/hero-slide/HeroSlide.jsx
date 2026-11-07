@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import SwiperCore, { Autoplay } from 'swiper';
+import SwiperCore, { Autoplay, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useHistory } from 'react-router-dom';
 
@@ -13,9 +13,10 @@ import './hero-slide.scss';
 
 import customDataset from '../movie-grid/top10_movies_by_genre.json'; 
 
-const HeroSlide = () => {
-    SwiperCore.use([Autoplay]);
+// Install Swiper modules
+SwiperCore.use([Autoplay, Pagination]);
 
+const HeroSlide = () => {
     const [movieItems, setMovieItems] = useState([]);
 
     useEffect(() => {
@@ -68,22 +69,29 @@ const HeroSlide = () => {
 
     return (
         <div className="hero-slide">
-            <Swiper
-                modules={[Autoplay]}
-                grabCursor={true}
-                spaceBetween={0}
-                slidesPerView={1}
-            >
-                {
-                    movieItems.map((item, i) => (
-                        <SwiperSlide key={i}>
-                            {({ isActive }) => (
-                                <HeroSlideItem item={item} className={`${isActive ? 'active' : ''}`} />
-                            )}
-                        </SwiperSlide>
-                    ))
-                }
-            </Swiper>
+            {movieItems.length > 0 && (
+                <Swiper
+                    modules={[Autoplay, Pagination]}
+                    grabCursor={true}
+                    spaceBetween={0}
+                    slidesPerView={1}
+                    autoplay={{
+                        delay: 4000,
+                        disableOnInteraction: false
+                    }}
+                    loop={true}
+                >
+                    {
+                        movieItems.map((item, i) => (
+                            <SwiperSlide key={i}>
+                                {({ isActive }) => (
+                                    <HeroSlideItem item={item} className={`${isActive ? 'active' : ''}`} />
+                                )}
+                            </SwiperSlide>
+                        ))
+                    }
+                </Swiper>
+            )}
             {
                 movieItems.map((item, i) => (
                     <TrailerModal key={i} item={item} />
@@ -100,7 +108,6 @@ const HeroSlideItem = props => {
     const background = apiConfig.originalImage(item.backdrop_path ? item.backdrop_path : item.poster_path);
 
     const navigateToDetail = () => {
-        // Uses your app's correct HOME_PAGE route prefix
         history.push(`/${Config.HOME_PAGE}/movie/${item.id}`);
     };
 
@@ -111,8 +118,8 @@ const HeroSlideItem = props => {
         try {
             const videos = await tmdbApi.getVideos(category.movie, item.id);
             if (videos.results && videos.results.length > 0) {
-                const videSource = 'https://www.youtube.com/embed/' + videos.results[0].key;
-                iframeRef.setAttribute('src', videSource);
+                const videoSource = 'https://www.youtube.com/embed/' + videos.results[0].key;
+                iframeRef.setAttribute('src', videoSource);
             } else {
                 iframeRef.setAttribute('src', '');
             }
