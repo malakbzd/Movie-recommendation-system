@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import "./movie-grid.scss";
 import { useHistory, useParams } from "react-router";
 import MovieCard from "./../movie-card/MovieCard";
-import tmdbApi, { category, movieType } from "../../api/tmdbApi";
+import tmdbApi, { category } from "../../api/tmdbApi";
 import Button, { OutlineButton } from "../button/Button";
 import Input from "../input/Input";
 import * as Config from "./../../constants/Config";
@@ -52,12 +52,47 @@ const MovieGrid = (props) => {
         setItems(validMovies);
         setTotalPage(1);
       } else if (keyword === undefined) {
-        const params = {};
-        // Default to upcoming movies since the dataset is movie-only
-        const response = await tmdbApi.getMoviesList(movieType.upcoming, { params });
-        const results = response.results || [];
-        setItems(results.filter(item => item && item.id && item.poster_path));
-        setTotalPage(response.total_pages);
+        // --- LOAD YOUR LOCAL DATASET MOVIES BY DEFAULT ---
+        const allDatasetMovies = [];
+        Object.values(customGenreData).forEach(genreList => {
+          if (Array.isArray(genreList)) {
+            allDatasetMovies.push(...genreList);
+          }
+        });
+
+        // Deduplicate movies by title
+        const uniqueMovies = Array.from(
+          new Map(allDatasetMovies.map(movie => [movie.title, movie])).values()
+        );
+
+        const enrichedMovies = await Promise.all(
+          uniqueMovies.map(async (movie) => {
+            try {
+              const cleanTitle = movie.title ? movie.title.replace(/\s*\(\d{4}\)$/, "").trim() : movie.title;
+              const response = await tmdbApi.search(props.category, {
+                params: { query: cleanTitle },
+              });
+              const match = response.results && response.results[0];
+              
+              if (match && match.id && match.poster_path) {
+                return {
+                  ...movie,
+                  id: match.id,
+                  title: match.title || match.name || cleanTitle,
+                  poster_path: match.poster_path,
+                  backdrop_path: match.backdrop_path,
+                };
+              }
+              return null;
+            } catch (err) {
+              return null;
+            }
+          })
+        );
+
+        const validMovies = enrichedMovies.filter(item => item !== null);
+        setItems(validMovies);
+        setTotalPage(1);
       } else {
         const params = { query: keyword };
         const response = await tmdbApi.search(props.category, { params });
