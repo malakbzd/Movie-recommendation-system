@@ -1,144 +1,171 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState, useEffect, useRef } from 'react';
+import SwiperCore, { Autoplay } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { useHistory } from 'react-router-dom';
 
-import SwiperCore, { Autoplay } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+import tmdbApi, { category } from '../../api/tmdbApi';
+import apiConfig from '../../api/apiConfig';
+import Button, { OutlineButton } from '../button/Button';
+import Modal, { ModalContent } from '../modal/Modal';
+import * as Config from '../../constants/Config';
 
-import Button, { OutlineButton } from "./../button/Button";
-import Modal, { ModalContent } from "./../modal/Modal";
+import './hero-slide.scss';
 
-import tmdbApi, { category, movieType } from "./../../api/tmdbApi";
-import apiConfig from "./../../api/apiConfig";
-
-import "./hero-slide.scss";
-import { useHistory } from "react-router";
-
-import * as Config from "./../../constants/Config";
+import customDataset from '../movie-grid/top10_movies_by_genre.json'; 
 
 const HeroSlide = () => {
-  SwiperCore.use([Autoplay]);
+    SwiperCore.use([Autoplay]);
 
-  const [movieItems, setMovieItems] = useState([]);
+    const [movieItems, setMovieItems] = useState([]);
 
-  useEffect(() => {
-    const getMovies = async () => {
-      const params = { page: 1 };
-      try {
-        const response = await tmdbApi.getMoviesList(movieType.popular, {
-          params,
-        });
-        setMovieItems(response.results.slice(0, 4));
-        console.log(response);
-      } catch {
-        console.log("error");
-      }
-    };
-    getMovies();
-  }, []);
+    useEffect(() => {
+        const getDatasetMovies = async () => {
+            try {
+                const allDatasetMovies = [];
+                Object.values(customDataset).forEach(genreList => {
+                    if (Array.isArray(genreList)) {
+                        allDatasetMovies.push(...genreList);
+                    }
+                });
 
-  return (
-    <div className="hero-slide">
-      <Swiper
-        modules={[Autoplay]}
-        grabCursor={true}
-        spaceBetween={0}
-        slidesPerView={1}
-        autoplay={{ delay: 4000 }}
-      >
-        {movieItems.map((item, index) => (
-          <SwiperSlide key={index}>
-            {({ isActive }) => (
-              // eslint-disable-next-line jsx-a11y/alt-text
-              <HeroSlideItem
-                item={item}
-                className={`${isActive ? "active" : ""}`}
-              />
-            )}
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      {movieItems.map((item, index) => (
-        <TrailerModal key={index} item={item} />
-      ))}
-    </div>
-  );
-};
+                const sampleMovies = allDatasetMovies.slice(0, 8);
 
-const HeroSlideItem = (props) => {
-  let history = useHistory();
+                const enriched = await Promise.all(
+                    sampleMovies.map(async (movie) => {
+                        try {
+                            const cleanTitle = movie.title ? movie.title.replace(/\s*\(\d{4}\)$/, "").trim() : movie.title;
+                            const response = await tmdbApi.search(category.movie, {
+                                params: { query: cleanTitle }
+                            });
+                            const match = response.results && response.results[0];
 
-  const item = props.item;
+                            if (match && match.id && match.backdrop_path) {
+                                return {
+                                    ...movie,
+                                    id: match.id,
+                                    title: match.title || cleanTitle,
+                                    overview: match.overview || movie.overview,
+                                    backdrop_path: match.backdrop_path,
+                                    poster_path: match.poster_path
+                                };
+                            }
+                            return null;
+                        } catch (err) {
+                            return null;
+                        }
+                    })
+                );
 
-  const background = apiConfig.originalImage(
-    item.backdrop_path ? item.backdrop_path : item.poster_path
-  );
+                const validMovies = enriched.filter(item => item !== null);
+                setMovieItems(validMovies);
+            } catch (error) {
+                console.error("Error loading dataset for hero slide:", error);
+            }
+        };
 
-  const setModalActive = async () => {
-    const modal = document.querySelector(`#modal_${item.id}`);
+        getDatasetMovies();
+    }, []);
 
-    const videos = await tmdbApi.getVideos(category.movie, item.id);
-
-    if (videos.results.length > 0) {
-      const videoSrc = "https://www.youtube.com/embed/" + videos.results[0].key;
-      modal
-        .querySelector(".modal__content > iframe")
-        .setAttribute("src", videoSrc);
-    } else {
-      modal.querySelector(".modal__content").innerHTML = "No trailer";
-    }
-
-    modal.classList.toggle("active");
-  };
-
-  return (
-    <div
-      className={`hero-slide__item ${props.className}`}
-      style={{ backgroundImage: `url(${background})` }}
-    >
-      <div className="hero-slide__item__content container">
-        <div className="hero-slide__item__content__info">
-          <h2 className="title">{item.title}</h2>
-          <div className="overview">{item.overview}</div>
-          <div className="btns">
-            <Button
-              onClick={() =>
-                history.push(`/${Config.HOME_PAGE}/movie/` + item.id)
-              }
+    return (
+        <div className="hero-slide">
+            <Swiper
+                modules={[Autoplay]}
+                grabCursor={true}
+                spaceBetween={0}
+                slidesPerView={1}
             >
-              Watch now
-            </Button>
-            <OutlineButton onClick={setModalActive}>
-              Watch trailer
-            </OutlineButton>
-          </div>
+                {
+                    movieItems.map((item, i) => (
+                        <SwiperSlide key={i}>
+                            {({ isActive }) => (
+                                <HeroSlideItem item={item} className={`${isActive ? 'active' : ''}`} />
+                            )}
+                        </SwiperSlide>
+                    ))
+                }
+            </Swiper>
+            {
+                movieItems.map((item, i) => (
+                    <TrailerModal key={i} item={item} />
+                ))
+            }
         </div>
+    );
+}
 
-        <div className="hero-slide__item__content__poster">
-          <img src={apiConfig.w500Image(item.poster_path)} alt="" />
+const HeroSlideItem = props => {
+    let history = useHistory();
+    const item = props.item;
+
+    const background = apiConfig.originalImage(item.backdrop_path ? item.backdrop_path : item.poster_path);
+
+    const navigateToDetail = () => {
+        // Uses your app's correct HOME_PAGE route prefix
+        history.push(`/${Config.HOME_PAGE}/movie/${item.id}`);
+    };
+
+    const setModalActive = async () => {
+        const modal = document.querySelector(`#modal_${item.id}`);
+        const iframeRef = modal.querySelector('iframe');
+
+        try {
+            const videos = await tmdbApi.getVideos(category.movie, item.id);
+            if (videos.results && videos.results.length > 0) {
+                const videSource = 'https://www.youtube.com/embed/' + videos.results[0].key;
+                iframeRef.setAttribute('src', videSource);
+            } else {
+                iframeRef.setAttribute('src', '');
+            }
+        } catch (err) {
+            iframeRef.setAttribute('src', '');
+        }
+
+        modal.classList.toggle('active');
+    };
+
+    return (
+        <div
+            className={`hero-slide__item ${props.className}`}
+            style={{backgroundImage: `url(${background})`}}
+        >
+            <div className="hero-slide__item__content container">
+                <div className="hero-slide__item__content__info">
+                    <h2 className="title">{item.title}</h2>
+                    <div className="overview">{item.overview}</div>
+                    <div className="btns">
+                        <Button onClick={navigateToDetail}>
+                            Watch now
+                        </Button>
+                        <OutlineButton onClick={setModalActive}>
+                            Watch trailer
+                        </OutlineButton>
+                    </div>
+                </div>
+                <div className="hero-slide__item__content__poster">
+                    <img src={apiConfig.w500Image(item.poster_path)} alt={item.title} />
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
-};
+    );
+}
 
-const TrailerModal = (props) => {
-  const item = props.item;
+const TrailerModal = props => {
+    const item = props.item;
+    const iframeRef = useRef(null);
 
-  const iframeRef = useRef(null);
+    const onClose = () => {
+        if (iframeRef.current) {
+            iframeRef.current.setAttribute('src', '');
+        }
+    };
 
-  const onClose = () => iframeRef.current.setAttribute("src", "");
-
-  return (
-    <Modal active={false} id={`modal_${item.id}`}>
-      <ModalContent onClose={onClose}>
-        <iframe
-          ref={iframeRef}
-          width="100%"
-          height="500px"
-          title="trailer"
-        ></iframe>
-      </ModalContent>
-    </Modal>
-  );
-};
+    return (
+        <Modal active={false} id={`modal_${item.id}`}>
+            <ModalContent onClose={onClose}>
+                <iframe ref={iframeRef} width="100%" height="500px" title="trailer"></iframe>
+            </ModalContent>
+        </Modal>
+    );
+}
 
 export default HeroSlide;
