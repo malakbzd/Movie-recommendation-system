@@ -9,7 +9,7 @@ import * as Config from "./../../constants/Config";
 const headerNav = [
   { display: "Home", path: `/${Config.HOME_PAGE}` },
   { display: "Movies", path: `/${Config.HOME_PAGE}/movie` },
-  { display: "Genre", path: `/${Config.HOME_PAGE}/tv` },
+  { display: "Genre", path: `/${Config.HOME_PAGE}/movie/genre` },
 ];
 
 const Header = () => {

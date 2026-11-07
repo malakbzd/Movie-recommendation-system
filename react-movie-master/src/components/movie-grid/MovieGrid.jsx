@@ -168,6 +168,7 @@ const MovieSearch = (props) => {
 
 const MovieGenre = (props) => {
   const history = useHistory();
+  const { genreName } = useParams();
   const [genre, setGenre] = useState("");
 
   const genres = [
@@ -175,6 +176,15 @@ const MovieGenre = (props) => {
     "Documentary", "Drama", "Fantasy", "Film-Noir", "Horror", "Musical",
     "Mystery", "Romance", "Sci-Fi", "Thriller", "War", "Western"
   ];
+
+  useEffect(() => {
+    if (genreName) {
+      const found = genres.find(g => g.toLowerCase() === genreName.toLowerCase());
+      if (found) {
+        setGenre(found);
+      }
+    }
+  }, [genreName]);
 
   const handleGenreChange = (e) => {
     const selectedGenre = e.target.value;
