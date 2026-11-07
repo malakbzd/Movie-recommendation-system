@@ -1,0 +1,4 @@
+criterion,passed
+Tuned model improves test RMSE over baseline,True
+Tuned model improves test MAE over baseline,True
+Model training completed,True

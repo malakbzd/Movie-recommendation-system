@@ -1,0 +1,31 @@
+
+WEEKLY STATUS REPORT NO. 4 – TUNING, TRACKING AND SERIALIZATION
+Project: Movie Recommendation System
+Reporting week: Week 6
+
+Completed work:
+- Tuned SVD hyperparameters using 3-fold cross-validation on training data only.
+- Trained the selected SVD model on the complete training partition.
+- Evaluated the tuned model on the untouched test partition.
+- Logged parameters, validation metrics and test metrics to MLflow.
+- Serialized the model using joblib and verified that it can be reloaded.
+- Executed the acceptance criteria and review checklist.
+
+Best parameters: {'n_factors': 50, 'n_epochs': 30, 'lr_all': 0.005, 'reg_all': 0.05, 'random_state': 42}
+Cross-validation RMSE: 0.8685
+Cross-validation MAE: 0.6684
+Held-out test RMSE: 0.8556
+Held-out test MAE: 0.6619
+Week 5 baseline test RMSE: 1.0394
+Week 5 baseline test MAE: 0.8340
+
+Acceptance result: ACCEPTED
+Serialization verification: PASS
+
+Risks/issues:
+- If the tuned model does not outperform the baseline, further tuning or model review is required.
+- MLflow UI must be opened locally to inspect the experiment dashboard.
+
+Next steps:
+- Complete deployment and KPI dashboard work in Week 7.
+- Prepare final project documentation and defense.

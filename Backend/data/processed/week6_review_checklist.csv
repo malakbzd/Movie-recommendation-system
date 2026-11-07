@@ -1,0 +1,9 @@
+review_item,passed
+Training/test split reproduced with random_state=42,True
+GridSearchCV used training data only,True
+Test set used only for final evaluation,True
+Tuned model evaluated with MAE and RMSE,True
+Acceptance criteria calculated from actual results,True
+Model saved in .pkl format,True
+Saved model reloaded successfully,True
+MLflow experiment/run logged,True

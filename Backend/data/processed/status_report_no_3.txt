@@ -1,0 +1,23 @@
+
+WEEKLY STATUS REPORT NO. 3 – TRAINING AND BASELINE
+Project: Movie Recommendation System
+Reporting week: Week 5
+
+Completed work:
+- Created an 80/20 train-test split using random_state=42.
+- Trained a mean-rating Baseline model.
+- Trained SVD and Neural Collaborative Filtering (NCF).
+- Compared the models using MAE and RMSE on the same test set.
+
+Current best candidate by RMSE: SVD
+Best test MAE: 0.6730
+Best test RMSE: 0.8691
+
+Risks/issues:
+- NCF cannot learn embeddings for users or movies absent from its training data.
+- The team should preserve the held-out test set for final evaluation.
+
+Next steps:
+- Tune SVD hyperparameters using training data only.
+- Track experiments with MLflow.
+- Validate the tuned model against the held-out test set.

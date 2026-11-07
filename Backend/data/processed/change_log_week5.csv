@@ -1,0 +1,3 @@
+change_id,date,change_request,reason,schedule_impact,budget_impact,status
+CH-001,2026-11-07,Create a common 80/20 train-test split for all models,Ensure a fair comparison between candidate algorithms,No major impact,No additional budget,Implemented
+CH-002,2026-11-07,"Compare Baseline, SVD and NCF using MAE and RMSE",Identify the best candidate model,Modeling and evaluation work,No additional budget,Implemented
