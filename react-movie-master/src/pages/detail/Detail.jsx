@@ -13,6 +13,7 @@ import MovieList from "./../../components/movie-list/MovieList";
 
 const Detail = () => {
   const { category, id } = useParams();
+  console.log("URL parameters:", { category, id });
   const [item, setItem] = useState(null);
   const [hasError, setHasError] = useState(false);
   
@@ -22,6 +23,7 @@ const Detail = () => {
     const getDetail = async () => {
       try {
         setHasError(false);
+        console.log("ID sent to TMDB:", id);
         const response = await tmdbApi.detail(category, id, { params: {} });
         setItem(response);
         window.scrollTo(0, 0);
