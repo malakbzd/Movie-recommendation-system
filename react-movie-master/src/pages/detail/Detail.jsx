@@ -75,7 +75,13 @@ const Detail = () => {
                 <h1 className="title">{item.title || item.name}</h1>
                 <button 
                   className={`btn-favorite ${isFavorited ? 'active' : ''}`}
-                  onClick={() => toggleFavorite(item)}
+                 onClick={() => toggleFavorite({
+    ...item,
+    id: item.id,
+    title: item.title || item.name,
+    poster_path: item.poster_path,
+    backdrop_path: item.backdrop_path
+})}
                 >
                   {isFavorited ? '❤️ Favorited' : '🤍 Add to Favorites'}
                 </button>

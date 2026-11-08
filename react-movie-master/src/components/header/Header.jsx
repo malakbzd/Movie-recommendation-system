@@ -10,6 +10,7 @@ const headerNav = [
   { display: "Home", path: `/${Config.HOME_PAGE}` },
   { display: "Movies", path: `/${Config.HOME_PAGE}/movie` },
   { display: "Genre", path: `/${Config.HOME_PAGE}/movie/genre` },
+  { display: "Favorites ", path: `/${Config.HOME_PAGE}/favorites` },
 ];
 
 const Header = () => {
