@@ -1,3 +1,4 @@
+// src/pages/Home.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -23,6 +24,28 @@ const Home = () => {
       <HeroSlide />
 
       <div className="container">
+        
+        {/* --- WATCHLIST BANNER START --- */}
+        <div className="section mb-3" style={{ marginTop: '20px' }}>
+          <div style={{ 
+            background: 'linear-gradient(45deg, #1f1f1f, #333)', 
+            padding: '30px', 
+            borderRadius: '10px', 
+            display: 'flex', 
+            justifyContent: 'space-between', 
+            alignItems: 'center' 
+          }}>
+            <div>
+              <h2 style={{ margin: 0 }}>Your Personal Watchlist</h2>
+              <p style={{ color: '#aaa', marginTop: '5px' }}>Keep track of what you want to watch and what you've finished.</p>
+            </div>
+            <Link to={`/${Config.HOME_PAGE}/watchlist`}>
+              <OutlineButton>View My Watchlist</OutlineButton>
+            </Link>
+          </div>
+        </div>
+        {/* --- WATCHLIST BANNER END --- */}
+
         {/* Section 1: Top Rated Movies */}
         <div className="section mb-3">
           <div className="section__header mb-2">

@@ -1,105 +1,73 @@
-
 // src/context/AuthContext.jsx
 import React, { createContext, useState, useEffect } from 'react';
 
 export const AuthContext = createContext();
+const API_URL = 'http://localhost:3001/users';
 
 export const AuthProvider = ({ children }) => {
-    const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
 
-    useEffect(() => {
-        const savedUser = localStorage.getItem('moviemaster_currentUser');
+  // On load, check if the user is already logged in (session memory)
+  useEffect(() => {
+    const savedUser = localStorage.getItem('moviemaster_session');
+    if (savedUser) {
+      setCurrentUser(JSON.parse(savedUser));
+    }
+  }, []);
 
-        if (savedUser) {
-            setCurrentUser(JSON.parse(savedUser));
-        }
-    }, []);
+  const login = (user) => {
+    setCurrentUser(user);
+    // We still use localStorage to remember WHO is logged in, so they don't have to re-type it on refresh
+    localStorage.setItem('moviemaster_session', JSON.stringify(user));
+  };
 
-    const login = (user) => {
-        // Keep existing favorites when the user logs in again
-        const users = JSON.parse(
-            localStorage.getItem('moviemaster_users') || '[]'
-        );
+  const logout = () => {
+    setCurrentUser(null);
+    localStorage.removeItem('moviemaster_session');
+  };
 
-        const savedAccount = users.find(u => u.email === user.email);
+  // REAL DATABASE UPDATE
+  const updateWatchStatus = async (movie, status) => {
+    if (!currentUser) return;
 
-        const updatedUser = {
-            ...user,
-            favorites: user.favorites || savedAccount?.favorites || []
-        };
+    let watchlist = [...(currentUser.watchlist || [])];
+    const existingIndex = watchlist.findIndex(item => item.id === movie.id);
 
-        setCurrentUser(updatedUser);
-        localStorage.setItem(
-            'moviemaster_currentUser',
-            JSON.stringify(updatedUser)
-        );
-    };
+    if (existingIndex !== -1) {
+      if (status === 'remove') {
+        watchlist.splice(existingIndex, 1);
+      } else {
+        watchlist[existingIndex].status = status; // Update status
+      }
+    } else if (status !== 'remove') {
+      // FIXED: Changed .push() to .unshift() so new movies go to the TOP
+      watchlist.unshift({
+        id: movie.id,
+        title: movie.title || movie.name,
+        poster: movie.poster_path || movie.backdrop_path,
+        status: status 
+      });
+    }
 
-    const logout = () => {
-        setCurrentUser(null);
-        localStorage.removeItem('moviemaster_currentUser');
-    };
+    const updatedUser = { ...currentUser, watchlist };
+    setCurrentUser(updatedUser);
+    localStorage.setItem('moviemaster_session', JSON.stringify(updatedUser));
 
-    const toggleFavorite = (movie) => {
-        if (!currentUser) return;
+    // Save to the REAL database (db.json)
+    try {
+      await fetch(`${API_URL}/${currentUser.id}`, {
+        method: 'PATCH', // PATCH updates just the watchlist without deleting the password/email
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ watchlist })
+      });
+    } catch (error) {
+      console.error("Failed to save to database. Is json-server running?", error);
+    }
+  };
 
-        let updatedFavorites = [...(currentUser.favorites || [])];
-
-        const exists = updatedFavorites.some(
-            fav => fav.id === movie.id
-        );
-
-        if (exists) {
-            // Remove from favorites
-            updatedFavorites = updatedFavorites.filter(
-                fav => fav.id !== movie.id
-            );
-        } else {
-            // Add movie with its image paths
-            updatedFavorites.push({
-                id: movie.id,
-                title: movie.title || movie.name,
-                poster_path: movie.poster_path || movie.backdrop_path,
-                backdrop_path: movie.backdrop_path || movie.poster_path
-            });
-        }
-
-        const updatedUser = {
-            ...currentUser,
-            favorites: updatedFavorites
-        };
-
-        setCurrentUser(updatedUser);
-
-        localStorage.setItem(
-            'moviemaster_currentUser',
-            JSON.stringify(updatedUser)
-        );
-
-        // Update users stored in localStorage
-        const users = JSON.parse(
-            localStorage.getItem('moviemaster_users') || '[]'
-        );
-
-        const userIndex = users.findIndex(
-            u => u.email === currentUser.email
-        );
-
-        if (userIndex !== -1) {
-            users[userIndex].favorites = updatedFavorites;
-
-            localStorage.setItem(
-                'moviemaster_users',
-                JSON.stringify(users)
-            );
-        }
-    };
-
-    return (
-        <AuthContext.Provider
-            value={{ currentUser, login, logout, toggleFavorite }}
-        >
-            {children}
-        </AuthContext.Provider>
-    );
+  return (
+    <AuthContext.Provider value={{ currentUser, login, logout, updateWatchStatus }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };

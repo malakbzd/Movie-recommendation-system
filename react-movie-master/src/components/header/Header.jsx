@@ -6,13 +6,13 @@ import "./header.scss";
 import logo from "./../../assets/logo.png";
 import * as Config from "./../../constants/Config";
 
+// Update the headerNav array:
 const headerNav = [
   { display: "Home", path: `/${Config.HOME_PAGE}` },
   { display: "Movies", path: `/${Config.HOME_PAGE}/movie` },
   { display: "Genre", path: `/${Config.HOME_PAGE}/movie/genre` },
-  { display: "Favorites ", path: `/${Config.HOME_PAGE}/favorites` },
+  { display: "Watchlist", path: `/${Config.HOME_PAGE}/watchlist` }, // Changed
 ];
-
 const Header = () => {
   const { pathname } = useLocation();
   const headerRef = useRef(null);

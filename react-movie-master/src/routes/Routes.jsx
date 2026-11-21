@@ -1,4 +1,3 @@
-
 // src/routes/Routes.jsx
 import React from "react";
 import { Route, Switch } from "react-router-dom";
@@ -9,7 +8,7 @@ import Detail from "../pages/detail/Detail";
 import SignIn from "../pages/SignIn";
 import Register from "../pages/Register";
 import Preferences from "../pages/Preferences";
-import Favorites from "../pages/Favorites";
+import Watchlist from "../pages/Watchlist"; // 1. Import Watchlist here
 
 import * as Config from "../constants/Config";
 
@@ -20,11 +19,11 @@ const Routes = () => {
       <Route path="/register" component={Register} />
       <Route path="/preferences" component={Preferences} />
 
-      {/* Favorites Page */}
+      {/* 2. Watchlist Page Route */}
       <Route
-        path={`/${Config.HOME_PAGE}/favorites`}
+        path={`/${Config.HOME_PAGE}/watchlist`}
         exact
-        component={Favorites}
+        component={Watchlist}
       />
 
       {/* 1. Base Genre Page (Shows genre dropdown) */}

@@ -1,0 +1,67 @@
+{
+  "users": [
+    {
+      "name": "maram",
+      "email": "kazarmarame@gmail.com",
+      "password": "fuyumichan",
+      "watchlist": [
+        {
+          "id": 387,
+          "title": "Das Boot",
+          "poster": "/hNfAYNCMRthp9iruF5Q6S1z4bVA.jpg",
+          "status": "watched"
+        },
+        {
+          "id": 361743,
+          "title": "Top Gun: Maverick",
+          "poster": "/n0YuM4f5lvGAP6MAW2kBIzugXnc.jpg",
+          "status": "watched"
+        },
+        {
+          "id": 11113,
+          "title": "My Fair Lady",
+          "poster": "/bTXVc29lGSNclf94VIZ49W4gGKl.jpg",
+          "status": "watched"
+        },
+        {
+          "id": 346,
+          "title": "Seven Samurai",
+          "poster": "/lOMGc8bnSwQhS4XyE1S99uH8NXf.jpg",
+          "status": "watched"
+        },
+        {
+          "id": 85,
+          "title": "Raiders of the Lost Ark",
+          "poster": "/ceG9VzoRAVGwivFU403Wc3AHRys.jpg",
+          "status": "watched"
+        },
+        {
+          "id": 424,
+          "title": "Schindler's List",
+          "poster": "/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg",
+          "status": "watched"
+        },
+        {
+          "id": 1891,
+          "title": "The Empire Strikes Back",
+          "poster": "/nNAeTmF4CtdSgMDplXTDPOpYzsX.jpg",
+          "status": "watched"
+        },
+        {
+          "id": 128,
+          "title": "Princess Mononoke",
+          "poster": "/cMYCDADoLKLbB83g4WnJegaZimC.jpg",
+          "status": "watched"
+        },
+        {
+          "id": 603,
+          "title": "The Matrix",
+          "poster": "/dXNAPwY7VrqMAo51EKhhCJfaGb5.jpg",
+          "status": "want"
+        }
+      ],
+      "id": "2GS3GtCEQhg"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
