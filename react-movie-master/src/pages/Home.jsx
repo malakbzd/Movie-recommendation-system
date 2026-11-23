@@ -1,5 +1,5 @@
 // src/pages/Home.jsx
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import { OutlineButton } from "../components/button/Button";
@@ -7,17 +7,22 @@ import HeroSlide from "../components/hero-slide/HeroSlide";
 import MovieList from "../components/movie-list/MovieList";
 
 import { category } from "../api/tmdbApi";
+import { AuthContext } from "../context/AuthContext";
+import { useRecommendations } from "../hooks/useRecommendations";
 import * as Config from "./../constants/Config";
 
 // Import your exact MovieLens top 10 dataset JSON file
 import customGenreData from "../components/movie-grid/top10_movies_by_genre.json";
 
 const Home = () => {
+  const { currentUser } = useContext(AuthContext);
+  const { recommendedMovies, loadingRecs } = useRecommendations(currentUser, 12);
+
   // Grab specific genres from your JSON file safely (defaults to empty array if missing)
   const actionMovies = customGenreData["action"] || [];
   const dramaMovies = customGenreData["drama"] || [];
   const animationMovies = customGenreData["animation"] || [];
-  const topRatedOverall = customGenreData["drama"] || []; // Or whichever genre represents your top tier
+  const topRatedOverall = customGenreData["drama"] || [];
 
   return (
     <>
@@ -45,6 +50,24 @@ const Home = () => {
           </div>
         </div>
         {/* --- WATCHLIST BANNER END --- */}
+
+        {/* --- RECOMMENDED FOR YOU START --- */}
+        {currentUser && (loadingRecs || recommendedMovies.length > 0) && (
+          <div className="section mb-3">
+            <div className="section__header mb-2">
+              <h2>Recommended For You (Based on Watched)</h2>
+              <Link to={`/${Config.HOME_PAGE}/watchlist`}>
+                <OutlineButton className="small">View more</OutlineButton>
+              </Link>
+            </div>
+            {loadingRecs ? (
+              <p style={{ color: '#aaa' }}>Loading recommendations...</p>
+            ) : (
+              <MovieList category={category.movie} type="custom" movies={recommendedMovies} />
+            )}
+          </div>
+        )}
+        {/* --- RECOMMENDED FOR YOU END --- */}
 
         {/* Section 1: Top Rated Movies */}
         <div className="section mb-3">

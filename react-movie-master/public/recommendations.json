@@ -1,0 +1,802 @@
+[
+  {
+    "movieId": 1221,
+    "predictedRating": 4.5038
+  },
+  {
+    "movieId": 858,
+    "predictedRating": 4.4554
+  },
+  {
+    "movieId": 1248,
+    "predictedRating": 4.3341
+  },
+  {
+    "movieId": 2571,
+    "predictedRating": 4.3223
+  },
+  {
+    "movieId": 1213,
+    "predictedRating": 4.3201
+  },
+  {
+    "movieId": 296,
+    "predictedRating": 4.3056
+  },
+  {
+    "movieId": 593,
+    "predictedRating": 4.3035
+  },
+  {
+    "movieId": 2959,
+    "predictedRating": 4.297
+  },
+  {
+    "movieId": 318,
+    "predictedRating": 4.292
+  },
+  {
+    "movieId": 1446,
+    "predictedRating": 4.246
+  },
+  {
+    "movieId": 541,
+    "predictedRating": 4.2148
+  },
+  {
+    "movieId": 92259,
+    "predictedRating": 4.2043
+  },
+  {
+    "movieId": 1222,
+    "predictedRating": 4.1922
+  },
+  {
+    "movieId": 1136,
+    "predictedRating": 4.1893
+  },
+  {
+    "movieId": 1193,
+    "predictedRating": 4.1776
+  },
+  {
+    "movieId": 1234,
+    "predictedRating": 4.166
+  },
+  {
+    "movieId": 1230,
+    "predictedRating": 4.1598
+  },
+  {
+    "movieId": 1172,
+    "predictedRating": 4.1516
+  },
+  {
+    "movieId": 1258,
+    "predictedRating": 4.148
+  },
+  {
+    "movieId": 2028,
+    "predictedRating": 4.1393
+  },
+  {
+    "movieId": 6,
+    "predictedRating": 4.1384
+  },
+  {
+    "movieId": 912,
+    "predictedRating": 4.1325
+  },
+  {
+    "movieId": 1178,
+    "predictedRating": 4.1325
+  },
+  {
+    "movieId": 527,
+    "predictedRating": 4.1321
+  },
+  {
+    "movieId": 923,
+    "predictedRating": 4.1311
+  },
+  {
+    "movieId": 260,
+    "predictedRating": 4.1184
+  },
+  {
+    "movieId": 608,
+    "predictedRating": 4.1154
+  },
+  {
+    "movieId": 1266,
+    "predictedRating": 4.1147
+  },
+  {
+    "movieId": 44555,
+    "predictedRating": 4.1146
+  },
+  {
+    "movieId": 1212,
+    "predictedRating": 4.1126
+  },
+  {
+    "movieId": 1196,
+    "predictedRating": 4.1086
+  },
+  {
+    "movieId": 7371,
+    "predictedRating": 4.1083
+  },
+  {
+    "movieId": 1203,
+    "predictedRating": 4.1067
+  },
+  {
+    "movieId": 1284,
+    "predictedRating": 4.1059
+  },
+  {
+    "movieId": 2186,
+    "predictedRating": 4.1007
+  },
+  {
+    "movieId": 1293,
+    "predictedRating": 4.0959
+  },
+  {
+    "movieId": 293,
+    "predictedRating": 4.0939
+  },
+  {
+    "movieId": 778,
+    "predictedRating": 4.0885
+  },
+  {
+    "movieId": 1252,
+    "predictedRating": 4.079
+  },
+  {
+    "movieId": 50,
+    "predictedRating": 4.0789
+  },
+  {
+    "movieId": 106100,
+    "predictedRating": 4.0677
+  },
+  {
+    "movieId": 7156,
+    "predictedRating": 4.0668
+  },
+  {
+    "movieId": 1207,
+    "predictedRating": 4.0647
+  },
+  {
+    "movieId": 1348,
+    "predictedRating": 4.0595
+  },
+  {
+    "movieId": 3089,
+    "predictedRating": 4.0593
+  },
+  {
+    "movieId": 66934,
+    "predictedRating": 4.0592
+  },
+  {
+    "movieId": 1235,
+    "predictedRating": 4.0583
+  },
+  {
+    "movieId": 904,
+    "predictedRating": 4.0582
+  },
+  {
+    "movieId": 4011,
+    "predictedRating": 4.0576
+  },
+  {
+    "movieId": 916,
+    "predictedRating": 4.0562
+  },
+  {
+    "movieId": 908,
+    "predictedRating": 4.0525
+  },
+  {
+    "movieId": 6016,
+    "predictedRating": 4.052
+  },
+  {
+    "movieId": 48516,
+    "predictedRating": 4.0507
+  },
+  {
+    "movieId": 46578,
+    "predictedRating": 4.0479
+  },
+  {
+    "movieId": 4235,
+    "predictedRating": 4.0476
+  },
+  {
+    "movieId": 5971,
+    "predictedRating": 4.0427
+  },
+  {
+    "movieId": 1267,
+    "predictedRating": 4.0393
+  },
+  {
+    "movieId": 1921,
+    "predictedRating": 4.0389
+  },
+  {
+    "movieId": 61240,
+    "predictedRating": 4.0366
+  },
+  {
+    "movieId": 1245,
+    "predictedRating": 4.0347
+  },
+  {
+    "movieId": 78499,
+    "predictedRating": 4.0345
+  },
+  {
+    "movieId": 6301,
+    "predictedRating": 4.0343
+  },
+  {
+    "movieId": 1035,
+    "predictedRating": 4.0299
+  },
+  {
+    "movieId": 3967,
+    "predictedRating": 4.0267
+  },
+  {
+    "movieId": 1104,
+    "predictedRating": 4.0261
+  },
+  {
+    "movieId": 3683,
+    "predictedRating": 4.0252
+  },
+  {
+    "movieId": 55820,
+    "predictedRating": 4.0238
+  },
+  {
+    "movieId": 110,
+    "predictedRating": 4.0179
+  },
+  {
+    "movieId": 3000,
+    "predictedRating": 4.0173
+  },
+  {
+    "movieId": 1283,
+    "predictedRating": 4.017
+  },
+  {
+    "movieId": 3429,
+    "predictedRating": 4.0169
+  },
+  {
+    "movieId": 1247,
+    "predictedRating": 4.0134
+  },
+  {
+    "movieId": 1244,
+    "predictedRating": 4.0128
+  },
+  {
+    "movieId": 750,
+    "predictedRating": 4.0127
+  },
+  {
+    "movieId": 3424,
+    "predictedRating": 4.0099
+  },
+  {
+    "movieId": 5064,
+    "predictedRating": 4.0082
+  },
+  {
+    "movieId": 7981,
+    "predictedRating": 4.0046
+  },
+  {
+    "movieId": 86377,
+    "predictedRating": 4.0022
+  },
+  {
+    "movieId": 714,
+    "predictedRating": 4.0019
+  },
+  {
+    "movieId": 2858,
+    "predictedRating": 4.0011
+  },
+  {
+    "movieId": 2728,
+    "predictedRating": 4.001
+  },
+  {
+    "movieId": 111,
+    "predictedRating": 3.9979
+  },
+  {
+    "movieId": 77658,
+    "predictedRating": 3.9973
+  },
+  {
+    "movieId": 8491,
+    "predictedRating": 3.9952
+  },
+  {
+    "movieId": 97921,
+    "predictedRating": 3.9886
+  },
+  {
+    "movieId": 3949,
+    "predictedRating": 3.9877
+  },
+  {
+    "movieId": 26131,
+    "predictedRating": 3.9866
+  },
+  {
+    "movieId": 7502,
+    "predictedRating": 3.9853
+  },
+  {
+    "movieId": 922,
+    "predictedRating": 3.9851
+  },
+  {
+    "movieId": 58559,
+    "predictedRating": 3.9848
+  },
+  {
+    "movieId": 47,
+    "predictedRating": 3.9838
+  },
+  {
+    "movieId": 7099,
+    "predictedRating": 3.9828
+  },
+  {
+    "movieId": 1198,
+    "predictedRating": 3.9825
+  },
+  {
+    "movieId": 3095,
+    "predictedRating": 3.9825
+  },
+  {
+    "movieId": 1217,
+    "predictedRating": 3.9797
+  },
+  {
+    "movieId": 2686,
+    "predictedRating": 3.974
+  },
+  {
+    "movieId": 55269,
+    "predictedRating": 3.9739
+  },
+  {
+    "movieId": 31658,
+    "predictedRating": 3.9738
+  },
+  {
+    "movieId": 930,
+    "predictedRating": 3.9711
+  },
+  {
+    "movieId": 1262,
+    "predictedRating": 3.9708
+  },
+  {
+    "movieId": 1211,
+    "predictedRating": 3.9705
+  },
+  {
+    "movieId": 1950,
+    "predictedRating": 3.9703
+  },
+  {
+    "movieId": 968,
+    "predictedRating": 3.9691
+  },
+  {
+    "movieId": 2324,
+    "predictedRating": 3.9672
+  },
+  {
+    "movieId": 32,
+    "predictedRating": 3.9623
+  },
+  {
+    "movieId": 1292,
+    "predictedRating": 3.9596
+  },
+  {
+    "movieId": 933,
+    "predictedRating": 3.9593
+  },
+  {
+    "movieId": 86345,
+    "predictedRating": 3.9588
+  },
+  {
+    "movieId": 80906,
+    "predictedRating": 3.9558
+  },
+  {
+    "movieId": 2333,
+    "predictedRating": 3.9554
+  },
+  {
+    "movieId": 1224,
+    "predictedRating": 3.9549
+  },
+  {
+    "movieId": 16,
+    "predictedRating": 3.954
+  },
+  {
+    "movieId": 6711,
+    "predictedRating": 3.9536
+  },
+  {
+    "movieId": 1103,
+    "predictedRating": 3.9507
+  },
+  {
+    "movieId": 1280,
+    "predictedRating": 3.9504
+  },
+  {
+    "movieId": 27611,
+    "predictedRating": 3.9484
+  },
+  {
+    "movieId": 4298,
+    "predictedRating": 3.9468
+  },
+  {
+    "movieId": 96610,
+    "predictedRating": 3.9456
+  },
+  {
+    "movieId": 1653,
+    "predictedRating": 3.9454
+  },
+  {
+    "movieId": 7438,
+    "predictedRating": 3.9435
+  },
+  {
+    "movieId": 1218,
+    "predictedRating": 3.9426
+  },
+  {
+    "movieId": 30749,
+    "predictedRating": 3.942
+  },
+  {
+    "movieId": 6552,
+    "predictedRating": 3.9417
+  },
+  {
+    "movieId": 2118,
+    "predictedRating": 3.9397
+  },
+  {
+    "movieId": 903,
+    "predictedRating": 3.9386
+  },
+  {
+    "movieId": 1269,
+    "predictedRating": 3.9382
+  },
+  {
+    "movieId": 1214,
+    "predictedRating": 3.9378
+  },
+  {
+    "movieId": 2010,
+    "predictedRating": 3.9369
+  },
+  {
+    "movieId": 1200,
+    "predictedRating": 3.9358
+  },
+  {
+    "movieId": 2329,
+    "predictedRating": 3.9355
+  },
+  {
+    "movieId": 1095,
+    "predictedRating": 3.935
+  },
+  {
+    "movieId": 40629,
+    "predictedRating": 3.9325
+  },
+  {
+    "movieId": 215,
+    "predictedRating": 3.9325
+  },
+  {
+    "movieId": 6870,
+    "predictedRating": 3.9307
+  },
+  {
+    "movieId": 971,
+    "predictedRating": 3.9305
+  },
+  {
+    "movieId": 194,
+    "predictedRating": 3.9294
+  },
+  {
+    "movieId": 4967,
+    "predictedRating": 3.9284
+  },
+  {
+    "movieId": 1259,
+    "predictedRating": 3.9278
+  },
+  {
+    "movieId": 308,
+    "predictedRating": 3.9264
+  },
+  {
+    "movieId": 1148,
+    "predictedRating": 3.9263
+  },
+  {
+    "movieId": 1299,
+    "predictedRating": 3.9244
+  },
+  {
+    "movieId": 5177,
+    "predictedRating": 3.9236
+  },
+  {
+    "movieId": 68954,
+    "predictedRating": 3.9235
+  },
+  {
+    "movieId": 1546,
+    "predictedRating": 3.9225
+  },
+  {
+    "movieId": 48780,
+    "predictedRating": 3.92
+  },
+  {
+    "movieId": 60069,
+    "predictedRating": 3.9177
+  },
+  {
+    "movieId": 2762,
+    "predictedRating": 3.9142
+  },
+  {
+    "movieId": 2918,
+    "predictedRating": 3.9116
+  },
+  {
+    "movieId": 3811,
+    "predictedRating": 3.9112
+  },
+  {
+    "movieId": 1209,
+    "predictedRating": 3.9107
+  },
+  {
+    "movieId": 5013,
+    "predictedRating": 3.9106
+  },
+  {
+    "movieId": 1273,
+    "predictedRating": 3.9098
+  },
+  {
+    "movieId": 936,
+    "predictedRating": 3.9097
+  },
+  {
+    "movieId": 599,
+    "predictedRating": 3.9083
+  },
+  {
+    "movieId": 1732,
+    "predictedRating": 3.9074
+  },
+  {
+    "movieId": 1188,
+    "predictedRating": 3.906
+  },
+  {
+    "movieId": 1748,
+    "predictedRating": 3.9035
+  },
+  {
+    "movieId": 1271,
+    "predictedRating": 3.9033
+  },
+  {
+    "movieId": 1090,
+    "predictedRating": 3.9027
+  },
+  {
+    "movieId": 1250,
+    "predictedRating": 3.9024
+  },
+  {
+    "movieId": 1730,
+    "predictedRating": 3.9023
+  },
+  {
+    "movieId": 745,
+    "predictedRating": 3.9004
+  },
+  {
+    "movieId": 48774,
+    "predictedRating": 3.9003
+  },
+  {
+    "movieId": 2439,
+    "predictedRating": 3.8963
+  },
+  {
+    "movieId": 79702,
+    "predictedRating": 3.8958
+  },
+  {
+    "movieId": 3681,
+    "predictedRating": 3.8957
+  },
+  {
+    "movieId": 55442,
+    "predictedRating": 3.8956
+  },
+  {
+    "movieId": 1809,
+    "predictedRating": 3.895
+  },
+  {
+    "movieId": 965,
+    "predictedRating": 3.8934
+  },
+  {
+    "movieId": 106920,
+    "predictedRating": 3.893
+  },
+  {
+    "movieId": 94959,
+    "predictedRating": 3.8925
+  },
+  {
+    "movieId": 914,
+    "predictedRating": 3.8925
+  },
+  {
+    "movieId": 5669,
+    "predictedRating": 3.892
+  },
+  {
+    "movieId": 4226,
+    "predictedRating": 3.8917
+  },
+  {
+    "movieId": 2997,
+    "predictedRating": 3.8884
+  },
+  {
+    "movieId": 2966,
+    "predictedRating": 3.8878
+  },
+  {
+    "movieId": 80969,
+    "predictedRating": 3.8874
+  },
+  {
+    "movieId": 562,
+    "predictedRating": 3.8865
+  },
+  {
+    "movieId": 29,
+    "predictedRating": 3.886
+  },
+  {
+    "movieId": 4865,
+    "predictedRating": 3.8852
+  },
+  {
+    "movieId": 2788,
+    "predictedRating": 3.8851
+  },
+  {
+    "movieId": 926,
+    "predictedRating": 3.885
+  },
+  {
+    "movieId": 3083,
+    "predictedRating": 3.8841
+  },
+  {
+    "movieId": 7445,
+    "predictedRating": 3.8822
+  },
+  {
+    "movieId": 7766,
+    "predictedRating": 3.8817
+  },
+  {
+    "movieId": 670,
+    "predictedRating": 3.8817
+  },
+  {
+    "movieId": 5690,
+    "predictedRating": 3.8793
+  },
+  {
+    "movieId": 1216,
+    "predictedRating": 3.8786
+  },
+  {
+    "movieId": 246,
+    "predictedRating": 3.8777
+  },
+  {
+    "movieId": 1719,
+    "predictedRating": 3.8754
+  },
+  {
+    "movieId": 86347,
+    "predictedRating": 3.8753
+  },
+  {
+    "movieId": 94466,
+    "predictedRating": 3.8748
+  },
+  {
+    "movieId": 38061,
+    "predictedRating": 3.8745
+  },
+  {
+    "movieId": 507,
+    "predictedRating": 3.8734
+  },
+  {
+    "movieId": 2019,
+    "predictedRating": 3.8725
+  },
+  {
+    "movieId": 4783,
+    "predictedRating": 3.8711
+  },
+  {
+    "movieId": 8228,
+    "predictedRating": 3.8709
+  },
+  {
+    "movieId": 1237,
+    "predictedRating": 3.8706
+  },
+  {
+    "movieId": 1287,
+    "predictedRating": 3.8701
+  },
+  {
+    "movieId": 1233,
+    "predictedRating": 3.87
+  }
+]

@@ -5,11 +5,21 @@ import { AuthContext } from '../context/AuthContext';
 import { category } from '../api/tmdbApi';
 import * as Config from "../constants/Config";
 import apiConfig from '../api/apiConfig';
+import { useRecommendations } from '../hooks/useRecommendations';
 import './../scss/watchlist.scss';
 
 const Watchlist = () => {
   const { currentUser } = useContext(AuthContext);
-  const [activeTab, setActiveTab] = useState('want'); 
+  const [activeTab, setActiveTab] = useState('want');
+
+  const watchlist = currentUser?.watchlist || [];
+  const watchedMovies = watchlist.filter(m => m && m.id && m.status === 'watched');
+
+  const displayedMovies = watchlist.filter(
+    m => m && m.id && m.status === activeTab
+  );
+
+  const { recommendedMovies, loadingRecs } = useRecommendations(currentUser, 12);
 
   if (!currentUser) {
     return (
@@ -18,10 +28,6 @@ const Watchlist = () => {
       </div>
     );
   }
-
-  const displayedMovies = currentUser.watchlist?.filter(
-    m => m && m.id && m.status === activeTab
-  ) || [];
 
   return (
     <div className="container watchlist-container">
@@ -42,7 +48,6 @@ const Watchlist = () => {
         </button>
       </div>
 
-      {/* CHANGED CLASS NAME HERE */}
       <div className="watchlist-grid">
         {displayedMovies.length === 0 ? (
           <p style={{ color: '#888', fontSize: '1.2rem' }}>No movies in this list yet.</p>
@@ -51,7 +56,7 @@ const Watchlist = () => {
             <Link 
               to={`/${Config.HOME_PAGE}/${category.movie}/${movie.id}`} 
               key={`${movie.id}-${index}`} 
-              className="watchlist-card" // CHANGED CLASS NAME HERE
+              className="watchlist-card"
             >
               <img 
                 src={movie.poster ? apiConfig.w500Image(movie.poster) : 'https://placehold.co/500x750/1f1f1f/ffffff?text=No+Image'} 
@@ -64,6 +69,39 @@ const Watchlist = () => {
               <h3>{movie.title || 'Unknown Title'}</h3>
             </Link>
           ))
+        )}
+      </div>
+
+      <div className="recommendations-section" style={{ marginTop: '3rem' }}>
+        <h2>Recommended For You (Based on Watched)</h2>
+        {watchedMovies.length === 0 ? (
+          <p style={{ color: '#888', fontSize: '1rem' }}>
+            Mark movies as Watched to get personalized recommendations.
+          </p>
+        ) : loadingRecs ? (
+          <p style={{ color: '#888', fontSize: '1rem' }}>Loading recommendations...</p>
+        ) : recommendedMovies.length === 0 ? (
+          <p style={{ color: '#888', fontSize: '1rem' }}>No new recommendations available right now.</p>
+        ) : (
+          <div className="watchlist-grid">
+            {recommendedMovies.map((movie) => (
+              <Link
+                to={`/${Config.HOME_PAGE}/${category.movie}/${movie.id}`}
+                key={`rec-${movie.id}`}
+                className="watchlist-card"
+              >
+                <img
+                  src={movie.poster ? apiConfig.w500Image(movie.poster) : 'https://placehold.co/500x750/1f1f1f/ffffff?text=No+Image'}
+                  alt={movie.title}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'https://placehold.co/500x750/1f1f1f/ffffff?text=No+Image';
+                  }}
+                />
+                <h3>{movie.title}</h3>
+              </Link>
+            ))}
+          </div>
         )}
       </div>
     </div>
