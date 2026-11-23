@@ -61,6 +61,20 @@
         }
       ],
       "id": "2GS3GtCEQhg"
+    },
+    {
+      "name": "malak",
+      "email": "malakbzd86@gmail.com",
+      "password": "malak",
+      "watchlist": [
+        {
+          "id": 278,
+          "title": "The Shawshank Redemption",
+          "poster": "/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg",
+          "status": "watched"
+        }
+      ],
+      "id": "Xr5tWIJNBM0"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
